@@ -192,8 +192,8 @@ def draw_border_tilted_keys():
 
 
 def draw_wrist_support():
-    hole_offset = 1.0 * pcbnew.IU_PER_MM
     rad = RADIUS2
+    hole_offset = -rad + (4.5 + 1.0) * pcbnew.IU_PER_MM
     dim = DIM
     brd = BORDER
     switches = SWITCHES
