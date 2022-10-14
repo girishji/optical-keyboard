@@ -255,7 +255,7 @@ def draw_wrist_support():
             end, centerpt(end, 3, rad), reverse=True, angle=60 if side == "left" else 90
         )
 
-    holenum = 1 if pcb_type == "wr_plate" else 1 + 18
+    holenum = 1 if pcb_type() == "wr_plate" else 1 + 18
     ctr = switches[65].GetPosition()
     support_lines(ctr, holenum)
     support_offset(ctr)
@@ -272,6 +272,10 @@ def draw_border():
     rad1 = 3 * pcbnew.IU_PER_MM
     left_offset = 5 * pcbnew.IU_PER_MM
 
+    if pcb_type() == "wr_plate":
+        draw_wrist_support()
+        return
+
     swl = switches[45].GetPosition()
     swr = switches[15].GetPosition()
     tl = wxPoint(swl.x - dim / 2 - brd + RADIUS2 - left_offset, swr.y - dim / 2 - brd)
@@ -282,16 +286,27 @@ def draw_border():
     sta = endpt(tl, 2, RADIUS2)
     end = wxPoint(tl.x - RADIUS2, swl.y + 1.5 * dim - RADIUS2 + brd)
     add_line(endpt(tl, 2, RADIUS2), end)
-    add_line_arc(end, centerpt(end, 1, RADIUS2), reverse=True, angle=45)
+    if pcb_type() == "pcb":
+        add_line_arc(end, centerpt(end, 1, RADIUS2), reverse=True, angle=45)
+    else:
+        add_line_arc(end, centerpt(end, 1, RADIUS2), reverse=True, angle=90)
+        sta = wxPoint(end.x + RADIUS2, end.y + RADIUS2)
+        end = wxPoint(sta.x + 3 * dim, sta.y)
+        add_line(sta, end)
 
     sta = wxPoint(tr.x + rad1, tr.y + rad1)
     sw = switches[72].GetPosition()
     end = wxPoint(tr.x + rad1, sw.y + dim / 2 + brd - RADIUS2)
     add_line(sta, end)
-
     add_line_arc(end, centerpt(end, 3, RADIUS2), reverse=False, angle=-90)
+    if pcb_type() != "pcb":
+        sta = wxPoint(end.x - RADIUS2, end.y + RADIUS2)
+        end = wxPoint(sta.x - 4 * dim, sta.y)
+        add_line(sta, end)
+
     draw_border_tilted_keys()
-    draw_wrist_support()
+    if pcb_type() == "pcb":
+        draw_wrist_support()
 
     pcbnew.Refresh()
 
