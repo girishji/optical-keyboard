@@ -247,29 +247,28 @@ def add_holes():
     board = pcbnew.GetBoard()
     holes = [board.FindFootprintByReference("Hs1")]  # dummy
     holes += [board.FindFootprintByReference("Hs" + str(num)) for num in range(1, 19)]
-    yshift = -0.6
 
     def set_position(num, x, y):
         holes[num].SetPosition(pcbnew.wxPointMM(x, y))
 
-    set_position(1, dim * 0.5, -dim * 0.5 - border)
-    set_position(2, dim * 5.5, -dim * 0.5 - border)
-    set_position(3, dim * 10.5, -dim * 0.5 - border)
-    set_position(4, dim * 15.5, -dim * 0.5 - border)
+    set_position(1, dim * 0.5, -dim * 0.5 - border + delta)
+    set_position(2, dim * 5.5, -dim * 0.5 - border + delta)
+    set_position(3, dim * 10.5, -dim * 0.5 - border + delta)
+    set_position(4, dim * 15.5, -dim * 0.5 - border + delta)
     set_position(5, dim * (2 - 1 / 8), dim * 1.5 - 2)
-    set_position(6, dim * 5, dim * 1.5 + yshift)
-    set_position(7, dim * 8, dim * 1.5 + yshift)
-    set_position(8, dim * 11, dim * 1.5 + yshift)
+    set_position(6, dim * 5, dim * 1.5 - delta)
+    set_position(7, dim * 8, dim * 1.5 - delta)
+    set_position(8, dim * 11, dim * 1.5 - delta)
     set_position(9, dim * (14 + 1 / 8), dim * 1.5 - 2)
     set_position(10, dim * 4.75, dim * 3.5 + delta)
     set_position(11, dim * 9.75, dim * 3.5 + delta)
-    set_position(12, dim * 15.5, dim * 2.5 + border)
-    set_position(13, dim * 0, dim * 4.5 + border)
-    set_position(14, dim * 3.25, dim * 4.5 + border)
+    set_position(12, dim * (15 + 1 / 5 + 1 / 4), dim * 2.5 + border)
+    set_position(13, dim * 0, dim * 4.5 + border - delta)
+    set_position(14, dim * 3.25, dim * 4.5 + border - delta)
     set_position(15, dim * 6.25 - 1, dim * 5.5 + border + 0.5)
     set_position(16, dim * 8.25 + 1, dim * 5.5 + border + 0.5)
-    set_position(17, dim * 12.0, dim * 4.5 + border)
-    set_position(18, dim * 15, dim * 4.5 + border)
+    set_position(17, dim * 12.0, dim * 4.5 + border - delta)
+    set_position(18, dim * 15, dim * 4.5 + border - delta)
 
     pcbnew.Refresh()
 

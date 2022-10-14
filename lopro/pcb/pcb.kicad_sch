@@ -3977,7 +3977,7 @@
   (symbol (lib_name "MountingHoleSMD_1") (lib_id "giri:MountingHoleSMD") (at 140.97 186.69 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 05f1735a-09dd-4080-94fd-8289ece55224)
-    (property "Reference" "Hs18" (id 0) (at 143.51 185.8553 0)
+    (property "Reference" "Hs19" (id 0) (at 143.51 185.8553 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "M2" (id 1) (at 143.51 188.3922 0)
@@ -5483,7 +5483,7 @@
   (symbol (lib_name "MountingHoleSMD_1") (lib_id "giri:MountingHoleSMD") (at 160.02 186.69 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 3cb06765-d332-474e-8aee-88c0309c35ff)
-    (property "Reference" "Hs21" (id 0) (at 162.56 185.8553 0)
+    (property "Reference" "Hs22" (id 0) (at 162.56 185.8553 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "M2" (id 1) (at 162.56 188.3922 0)
@@ -5661,7 +5661,7 @@
   (symbol (lib_name "MountingHoleSMD_1") (lib_id "giri:MountingHoleSMD") (at 140.97 193.04 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 4621ce48-0ccd-43dd-bfc6-dc3c8b0a3c23)
-    (property "Reference" "Hs22" (id 0) (at 143.51 192.2053 0)
+    (property "Reference" "Hs23" (id 0) (at 143.51 192.2053 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "M2" (id 1) (at 143.51 194.7422 0)
@@ -6228,7 +6228,7 @@
   (symbol (lib_name "MountingHoleSMD_1") (lib_id "giri:MountingHoleSMD") (at 160.02 193.04 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 638a5d8c-dfd0-4eeb-bac8-a6b2bb8852ea)
-    (property "Reference" "Hs25" (id 0) (at 162.56 192.2053 0)
+    (property "Reference" "Hs26" (id 0) (at 162.56 192.2053 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "M2" (id 1) (at 162.56 194.7422 0)
@@ -7126,7 +7126,7 @@
   (symbol (lib_name "MountingHoleSMD_1") (lib_id "giri:MountingHoleSMD") (at 147.32 186.69 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 90526b54-8115-4651-9951-dea3a70d3eeb)
-    (property "Reference" "Hs19" (id 0) (at 149.86 185.8553 0)
+    (property "Reference" "Hs20" (id 0) (at 149.86 185.8553 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "M2" (id 1) (at 149.86 188.3922 0)
@@ -7490,7 +7490,7 @@
   (symbol (lib_name "MountingHoleSMD_1") (lib_id "giri:MountingHoleSMD") (at 153.67 193.04 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid ac7a7bd4-0f91-4292-97eb-963a2361760c)
-    (property "Reference" "Hs24" (id 0) (at 156.21 192.2053 0)
+    (property "Reference" "Hs25" (id 0) (at 156.21 192.2053 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "M2" (id 1) (at 156.21 194.7422 0)
@@ -8191,6 +8191,23 @@
     (pin "2" (uuid f86e0564-0aaa-434a-889e-1fcd44fd7772))
   )
 
+  (symbol (lib_name "MountingHoleSMD_1") (lib_id "giri:MountingHoleSMD") (at 153.67 180.34 0) (unit 1)
+    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (uuid cf27c8b0-03e3-4a38-874c-67ce991ac925)
+    (property "Reference" "Hs18" (id 0) (at 156.21 179.5053 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "M2" (id 1) (at 156.21 182.0422 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "giri:SMTSO_M2" (id 2) (at 153.67 180.34 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (id 3) (at 153.67 180.34 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+  )
+
   (symbol (lib_id "giri:OSw") (at 139.7 87.63 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid cf318769-4193-44ff-bb0f-095b1ccbfb58)
@@ -8531,7 +8548,7 @@
   (symbol (lib_name "MountingHoleSMD_1") (lib_id "giri:MountingHoleSMD") (at 147.32 193.04 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid e2ebdd70-17ed-4afe-8674-9342ddab4254)
-    (property "Reference" "Hs23" (id 0) (at 149.86 192.2053 0)
+    (property "Reference" "Hs24" (id 0) (at 149.86 192.2053 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "M2" (id 1) (at 149.86 194.7422 0)
@@ -8962,7 +8979,7 @@
   (symbol (lib_name "MountingHoleSMD_1") (lib_id "giri:MountingHoleSMD") (at 153.67 186.69 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid f6f1b343-d5d5-44d9-b160-7d2cc37caad3)
-    (property "Reference" "Hs20" (id 0) (at 156.21 185.8553 0)
+    (property "Reference" "Hs21" (id 0) (at 156.21 185.8553 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "M2" (id 1) (at 156.21 188.3922 0)
@@ -9654,29 +9671,32 @@
     (path "/610ff557-40b0-4b3a-8429-f3cba769a44b"
       (reference "Hs17") (unit 1) (value "M2") (footprint "giri:SMTSO_M2")
     )
-    (path "/05f1735a-09dd-4080-94fd-8289ece55224"
+    (path "/cf27c8b0-03e3-4a38-874c-67ce991ac925"
       (reference "Hs18") (unit 1) (value "M2") (footprint "giri:SMTSO_M2")
     )
-    (path "/90526b54-8115-4651-9951-dea3a70d3eeb"
+    (path "/05f1735a-09dd-4080-94fd-8289ece55224"
       (reference "Hs19") (unit 1) (value "M2") (footprint "giri:SMTSO_M2")
     )
-    (path "/f6f1b343-d5d5-44d9-b160-7d2cc37caad3"
+    (path "/90526b54-8115-4651-9951-dea3a70d3eeb"
       (reference "Hs20") (unit 1) (value "M2") (footprint "giri:SMTSO_M2")
     )
-    (path "/3cb06765-d332-474e-8aee-88c0309c35ff"
+    (path "/f6f1b343-d5d5-44d9-b160-7d2cc37caad3"
       (reference "Hs21") (unit 1) (value "M2") (footprint "giri:SMTSO_M2")
     )
-    (path "/4621ce48-0ccd-43dd-bfc6-dc3c8b0a3c23"
+    (path "/3cb06765-d332-474e-8aee-88c0309c35ff"
       (reference "Hs22") (unit 1) (value "M2") (footprint "giri:SMTSO_M2")
     )
-    (path "/e2ebdd70-17ed-4afe-8674-9342ddab4254"
+    (path "/4621ce48-0ccd-43dd-bfc6-dc3c8b0a3c23"
       (reference "Hs23") (unit 1) (value "M2") (footprint "giri:SMTSO_M2")
     )
-    (path "/ac7a7bd4-0f91-4292-97eb-963a2361760c"
+    (path "/e2ebdd70-17ed-4afe-8674-9342ddab4254"
       (reference "Hs24") (unit 1) (value "M2") (footprint "giri:SMTSO_M2")
     )
-    (path "/638a5d8c-dfd0-4eeb-bac8-a6b2bb8852ea"
+    (path "/ac7a7bd4-0f91-4292-97eb-963a2361760c"
       (reference "Hs25") (unit 1) (value "M2") (footprint "giri:SMTSO_M2")
+    )
+    (path "/638a5d8c-dfd0-4eeb-bac8-a6b2bb8852ea"
+      (reference "Hs26") (unit 1) (value "M2") (footprint "giri:SMTSO_M2")
     )
     (path "/c6ce5191-7729-4f5b-9b94-cb2590b41d91"
       (reference "J1") (unit 1) (value "PCB_Lopro_Conn") (footprint "Connector:GB042-34S-H10")
