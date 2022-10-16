@@ -124,18 +124,18 @@ class Keyboard(object):
         self.switches[58].place((offs, 3 * dim))
 
         # row 5
-        offs = dim
+        offs = (1 - 1 / 4) * dim
         self.switches[59].place((offs - dim / 8, 4 * dim))
         for i in range(60, 62):
             self.switches[i].place((offs + (i - 59) * dim, 4 * dim))
-        offs = (3 + 1 / 2 + 1 / 4) * dim
+        offs = (3 + 1 / 2 + 1 / 8) * dim
         self.switches[62].place((offs + dim / 4 + 1, 4 * dim + 1))
         self.switches[62].rotate(-7)
 
         # self.switches[63].place((offs + dim * 1.25 + dim / 8 + 1.4, 4 * dim + 5.5))
         # self.switches[63].rotate(-16)
-        offs += dim * (1 + 1 / 4)
-        self.switches[63].place((offs + 1.4, 4 * dim + 5))
+        offs += dim * (1 + 1 / 4 + 1 / 8)
+        self.switches[63].place((offs + 1.4, 4 * dim + 5.2))
         self.switches[63].rotate(-16)
         offs += dim
 
@@ -149,7 +149,7 @@ class Keyboard(object):
         self.switches[66].place((offs + dim + dim / 4 + 1.0, 4.5 * dim + 7))
         self.switches[66].rotate(20 + 90)
         offs += dim * 1.25
-        self.switches[67].place((offs + dim - 1.4, 4 * dim + 5))
+        self.switches[67].place((offs + dim - 1.4, 4 * dim + 5.2))
         self.switches[67].rotate(16)
         self.switches[68].place((offs + 2 * dim - 1, 4 * dim + 1))
         self.switches[68].rotate(7)
@@ -379,7 +379,7 @@ def add_holes():
     set_position(11, dim * 9.75, dim * 3.5 + delta)
     set_position(12, dim * (15 + 1 / 5 + 1 / 4), dim * 2.5 + border)
     set_position(13, dim * 0, dim * 4.5 + border - delta)
-    set_position(14, dim * 3.5, dim * 4.5 + border - delta)
+    set_position(14, dim * (3 + 1 / 2 - 1 / 8 - 1 / 16), dim * 4.5 + border - delta)
     set_position(15, dim * 6.25 - 1, dim * 5.5 + border + 0.5)
     set_position(16, dim * 8.25 + 1, dim * 5.5 + border + 0.5)
     set_position(17, dim * 12.0, dim * 4.5 + border - delta)
