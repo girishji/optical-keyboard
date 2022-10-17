@@ -153,7 +153,7 @@ class Keyboard(object):
         self.switches[67].rotate(16)
         self.switches[68].place((offs + 2 * dim - 1, 4 * dim + 1))
         self.switches[68].rotate(7)
-        offs += 2 * dim
+        offs += (2 + 1 / 4) * dim
         self.switches[69].place((offs + dim, 4 * dim))
 
         for i in range(70, 73):
