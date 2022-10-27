@@ -47,26 +47,28 @@ def pcb_type():
 
 
 def add_line(start, end, layer=pcbnew.Edge_Cuts):
-    board = pcbnew.GetBoard()
-    ls = pcbnew.PCB_SHAPE(board)
-    ls.SetShape(pcbnew.SHAPE_T_SEGMENT)
-    ls.SetStart(start)
-    ls.SetEnd(end)
-    ls.SetLayer(layer)
-    # ls.SetWidth(int(0.12 * pcbnew.IU_PER_MM))
-    board.Add(ls)
+    # board = pcbnew.GetBoard()
+    # ls = pcbnew.PCB_SHAPE(board)
+    # ls.SetShape(pcbnew.SHAPE_T_SEGMENT)
+    # ls.SetStart(start)
+    # ls.SetEnd(end)
+    # ls.SetLayer(layer)
+    # # ls.SetWidth(int(0.12 * pcbnew.IU_PER_MM))
+    # board.Add(ls)
+    return
 
 
 def add_line_arc(start, center, reverse=False, angle=-90, layer=pcbnew.Edge_Cuts):
-    board = pcbnew.GetBoard()
-    arc = pcbnew.PCB_SHAPE(board)
-    arc.SetShape(pcbnew.SHAPE_T_ARC)
-    arc.SetStart(start)
-    arc.SetCenter(center)
-    arc.SetArcAngleAndEnd(-angle * 10, reverse)
-    arc.SetLayer(layer)
-    # arc.SetWidth(int(0.12 * pcbnew.IU_PER_MM))
-    board.Add(arc)
+    # board = pcbnew.GetBoard()
+    # arc = pcbnew.PCB_SHAPE(board)
+    # arc.SetShape(pcbnew.SHAPE_T_ARC)
+    # arc.SetStart(start)
+    # arc.SetCenter(center)
+    # arc.SetArcAngleAndEnd(-angle * 10, reverse)
+    # arc.SetLayer(layer)
+    # # arc.SetWidth(int(0.12 * pcbnew.IU_PER_MM))
+    # board.Add(arc)
+    return
 
 
 def centerpt(start, quadrant, d=RADIUS):
@@ -195,7 +197,8 @@ def draw_border_tilted_keys():
 
 def draw_wrist_support():
     rad = RADIUS2
-    hole_offset = -rad + (4.5 + 1.0) * pcbnew.IU_PER_MM
+    # hole_offset = -rad + (4.5 + 1.0) * pcbnew.IU_PER_MM
+    hole_offset = -rad + (5.5 + 1.0) * pcbnew.IU_PER_MM
     dim = DIM
     brd = BORDER
     switches = SWITCHES
@@ -331,5 +334,7 @@ def draw_border():
     pcbnew.Refresh()
 
 
-remove_drawings()
-draw_border()
+# remove_drawings()
+# draw_border()
+draw_wrist_support()
+pcbnew.Refresh()

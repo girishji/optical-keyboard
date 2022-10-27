@@ -14553,7 +14553,6 @@
     )
   )
 
-
   (junction (at 91.44 139.7) (diameter 0) (color 0 0 0 0)
     (uuid 007721b2-8a5d-44a2-870b-7feb854362c4)
   )
@@ -22058,7 +22057,7 @@
   (symbol (lib_id "Device:R_Small") (at 110.49 33.02 90) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 42ef8d69-8f2d-4172-8a20-2e1e6ecccbb7)
-    (property "Reference" "R7" (id 0) (at 114.3 31.75 90))
+    (property "Reference" "R6" (id 0) (at 114.3 31.75 90))
     (property "Value" "R_Small" (id 1) (at 110.49 31.1205 90)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -24135,7 +24134,7 @@
   (symbol (lib_id "Device:R_Small") (at 143.51 33.02 90) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 897913f2-9485-4368-ba0a-fa043d4c69bd)
-    (property "Reference" "R9" (id 0) (at 147.32 31.75 90))
+    (property "Reference" "R8" (id 0) (at 147.32 31.75 90))
     (property "Value" "R_Small" (id 1) (at 143.51 31.1205 90)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -24428,7 +24427,7 @@
   (symbol (lib_id "Device:R_Small") (at 127 33.02 90) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 99523b99-c6fb-4e51-b856-0bceee8d75cf)
-    (property "Reference" "R8" (id 0) (at 130.81 31.75 90))
+    (property "Reference" "R7" (id 0) (at 130.81 31.75 90))
     (property "Value" "R_Small" (id 1) (at 127 31.1205 90)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -24759,7 +24758,7 @@
   (symbol (lib_id "Device:R_Small") (at 160.02 33.02 90) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid a2eb7068-3655-4878-9609-210ec312df4f)
-    (property "Reference" "R6" (id 0) (at 163.83 31.75 90))
+    (property "Reference" "R9" (id 0) (at 163.83 31.75 90))
     (property "Value" "R_Small" (id 1) (at 160.02 31.1205 90)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -28419,16 +28418,16 @@
     (path "/cf0b960d-dbd3-4695-a307-f8891fac6f24"
       (reference "R5") (unit 1) (value "R_Small") (footprint "giri:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder")
     )
-    (path "/a2eb7068-3655-4878-9609-210ec312df4f"
+    (path "/42ef8d69-8f2d-4172-8a20-2e1e6ecccbb7"
       (reference "R6") (unit 1) (value "R_Small") (footprint "giri:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder")
     )
-    (path "/42ef8d69-8f2d-4172-8a20-2e1e6ecccbb7"
+    (path "/99523b99-c6fb-4e51-b856-0bceee8d75cf"
       (reference "R7") (unit 1) (value "R_Small") (footprint "giri:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder")
     )
-    (path "/99523b99-c6fb-4e51-b856-0bceee8d75cf"
+    (path "/897913f2-9485-4368-ba0a-fa043d4c69bd"
       (reference "R8") (unit 1) (value "R_Small") (footprint "giri:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder")
     )
-    (path "/897913f2-9485-4368-ba0a-fa043d4c69bd"
+    (path "/a2eb7068-3655-4878-9609-210ec312df4f"
       (reference "R9") (unit 1) (value "R_Small") (footprint "giri:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder")
     )
     (path "/af9865dd-8494-4e26-9a49-eba151f70638"
