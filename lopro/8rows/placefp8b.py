@@ -163,9 +163,11 @@ class Keyboard(object):
 
         # Modules
         Mod = self.board.FindFootprintByReference("MOD1")
-        Mod.SetPosition(wxPointMM(-7.0, -5.25))
+        if Mod:
+            Mod.SetPosition(wxPointMM(-7.0, -5.25))
         Mod = self.board.FindFootprintByReference("MOD2")
-        Mod.SetPosition(wxPointMM(116.5, 74.50))
+        if Mod:
+            Mod.SetPosition(wxPointMM(116.5, 74.50))
 
         # Connectors
         # J = [self.board.FindFootprintByReference("J" + str(num)) for num in range(1, 17)]

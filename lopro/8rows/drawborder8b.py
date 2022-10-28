@@ -47,28 +47,26 @@ def pcb_type():
 
 
 def add_line(start, end, layer=pcbnew.Edge_Cuts):
-    # board = pcbnew.GetBoard()
-    # ls = pcbnew.PCB_SHAPE(board)
-    # ls.SetShape(pcbnew.SHAPE_T_SEGMENT)
-    # ls.SetStart(start)
-    # ls.SetEnd(end)
-    # ls.SetLayer(layer)
-    # # ls.SetWidth(int(0.12 * pcbnew.IU_PER_MM))
-    # board.Add(ls)
-    return
+    board = pcbnew.GetBoard()
+    ls = pcbnew.PCB_SHAPE(board)
+    ls.SetShape(pcbnew.SHAPE_T_SEGMENT)
+    ls.SetStart(start)
+    ls.SetEnd(end)
+    ls.SetLayer(layer)
+    # ls.SetWidth(int(0.12 * pcbnew.IU_PER_MM))
+    board.Add(ls)
 
 
 def add_line_arc(start, center, reverse=False, angle=-90, layer=pcbnew.Edge_Cuts):
-    # board = pcbnew.GetBoard()
-    # arc = pcbnew.PCB_SHAPE(board)
-    # arc.SetShape(pcbnew.SHAPE_T_ARC)
-    # arc.SetStart(start)
-    # arc.SetCenter(center)
-    # arc.SetArcAngleAndEnd(-angle * 10, reverse)
-    # arc.SetLayer(layer)
-    # # arc.SetWidth(int(0.12 * pcbnew.IU_PER_MM))
-    # board.Add(arc)
-    return
+    board = pcbnew.GetBoard()
+    arc = pcbnew.PCB_SHAPE(board)
+    arc.SetShape(pcbnew.SHAPE_T_ARC)
+    arc.SetStart(start)
+    arc.SetCenter(center)
+    arc.SetArcAngleAndEnd(-angle * 10, reverse)
+    arc.SetLayer(layer)
+    # arc.SetWidth(int(0.12 * pcbnew.IU_PER_MM))
+    board.Add(arc)
 
 
 def centerpt(start, quadrant, d=RADIUS):
@@ -209,6 +207,7 @@ def draw_wrist_support():
         hole = pcbnew.GetBoard().FindFootprintByReference("Hs" + str(num))
         hole.SetPosition(loc)
 
+    # 'shrink' parameter is for the cutout
     def support_lines(ctr, holenum, shrink=0):
         sta = wxPoint(
             ctr.x - WR["offset"] - shrink,
@@ -274,16 +273,20 @@ def draw_wrist_support():
         )
         add_line_arc(sta, centerpt(sta, 1, cradius), reverse=False, angle=-360)
 
-    holenum = 1 if pcb_type() == "wr_plate" else 1 + 18
-    ctr = switches[65].GetPosition()
     shrinkage = 11 * pcbnew.IU_PER_MM
-    support_lines(ctr, holenum)
-    support_lines(ctr, 0, shrinkage)
-    support_offset(ctr)
-    ctr = wxPoint(ctr.x + 2 * WR["offset"] + WR["width"], ctr.y)
-    support_lines(ctr, holenum + 4)
-    support_lines(ctr, 0, shrinkage)
-    support_offset(ctr, side="right")
+    if pcb_type() == "wr_plate":
+        support_lines(wxPoint(WR["offset"] + WR["width"], 0), 1)
+        support_lines(wxPoint(WR["offset"] + WR["width"], 0), 0, shrinkage)
+    else:
+        ctr = switches[65].GetPosition()
+        holenum = 1 + 18
+        support_lines(ctr, holenum)
+        support_lines(ctr, 0, shrinkage)
+        support_offset(ctr)
+        ctr = wxPoint(ctr.x + 2 * WR["offset"] + WR["width"], ctr.y)
+        support_lines(ctr, holenum + 4)
+        support_lines(ctr, 0, shrinkage)
+        support_offset(ctr, side="right")
 
 
 def draw_border():
@@ -334,7 +337,6 @@ def draw_border():
     pcbnew.Refresh()
 
 
-# remove_drawings()
-# draw_border()
-draw_wrist_support()
+remove_drawings()
+draw_border()
 pcbnew.Refresh()
