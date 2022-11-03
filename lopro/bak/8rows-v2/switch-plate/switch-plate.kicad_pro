@@ -48,13 +48,7 @@
           "min_clearance": 0.508
         }
       },
-      "diff_pair_dimensions": [
-        {
-          "gap": 0.0,
-          "via_gap": 0.0,
-          "width": 0.0
-        }
-      ],
+      "diff_pair_dimensions": [],
       "drc_exclusions": [],
       "meta": {
         "version": 2
@@ -104,35 +98,22 @@
         "allow_microvias": false,
         "max_error": 0.005,
         "min_clearance": 0.0,
-        "min_copper_edge_clearance": 0.19999999999999998,
+        "min_copper_edge_clearance": 0.0,
         "min_hole_clearance": 0.25,
         "min_hole_to_hole": 0.25,
         "min_microvia_diameter": 0.19999999999999998,
         "min_microvia_drill": 0.09999999999999999,
         "min_silk_clearance": 0.0,
         "min_through_hole_diameter": 0.3,
-        "min_track_width": 0.15,
+        "min_track_width": 0.19999999999999998,
         "min_via_annular_width": 0.049999999999999996,
         "min_via_diameter": 0.39999999999999997,
         "solder_mask_clearance": 0.0,
         "solder_mask_min_width": 0.0,
         "use_height_for_length_calcs": true
       },
-      "track_widths": [
-        0.0,
-        0.1524,
-        0.2,
-        0.25,
-        0.3,
-        0.4,
-        0.6
-      ],
-      "via_dimensions": [
-        {
-          "diameter": 0.0,
-          "drill": 0.0
-        }
-      ],
+      "track_widths": [],
+      "via_dimensions": [],
       "zones_allow_external_fillets": false,
       "zones_use_no_outline": true
     },
@@ -352,7 +333,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "pcb.kicad_pro",
+    "filename": "switch-plate.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -370,145 +351,6 @@
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.25,
-        "via_diameter": 0.8,
-        "via_drill": 0.4,
-        "wire_width": 6.0
-      },
-      {
-        "bus_width": 12.0,
-        "clearance": 0.2,
-        "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
-        "diff_pair_width": 0.2,
-        "line_style": 0,
-        "microvia_diameter": 0.3,
-        "microvia_drill": 0.1,
-        "name": "IC",
-        "nets": [
-          "/AD",
-          "/COL1A",
-          "/COL1B",
-          "/COL2A",
-          "/COL2B",
-          "/COL3A",
-          "/COL3B",
-          "/COL4A",
-          "/COL4B",
-          "/COL5A",
-          "/COL5B",
-          "/COL6A",
-          "/COL6B",
-          "/COL7A",
-          "/COL7B",
-          "/COL8A",
-          "/COL8B",
-          "/COL9A",
-          "/COL9B",
-          "/C_FLT",
-          "/P1",
-          "/P2",
-          "/P3",
-          "/P4",
-          "/P5",
-          "/P6",
-          "/P7",
-          "/P8",
-          "/QSPI_SCLK",
-          "/QSPI_SD0",
-          "/QSPI_SD1",
-          "/QSPI_SD2",
-          "/QSPI_SD3",
-          "/QSPI_SS",
-          "/RUN",
-          "/R_EXT",
-          "/SWCLK",
-          "/SWD",
-          "/XIN",
-          "/XOUT",
-          "/~{INTB}",
-          "/~{SDB}",
-          "/~{USB_BOOT}",
-          "SCL",
-          "SDA"
-        ],
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.2,
-        "via_diameter": 0.6,
-        "via_drill": 0.35,
-        "wire_width": 6.0
-      },
-      {
-        "bus_width": 12.0,
-        "clearance": 0.2,
-        "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
-        "diff_pair_width": 0.2,
-        "line_style": 0,
-        "microvia_diameter": 0.3,
-        "microvia_drill": 0.1,
-        "name": "LEDs",
-        "nets": [
-          "CA1",
-          "CA2",
-          "CA3",
-          "CA4",
-          "CA5",
-          "CA6",
-          "CA7",
-          "CA8",
-          "CA9",
-          "CB1",
-          "CB2",
-          "CB3",
-          "CB4",
-          "CB5",
-          "CB6",
-          "CB7",
-          "CB8"
-        ],
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.2,
-        "via_diameter": 0.6,
-        "via_drill": 0.35,
-        "wire_width": 6.0
-      },
-      {
-        "bus_width": 12.0,
-        "clearance": 0.1524,
-        "diff_pair_gap": 0.1524,
-        "diff_pair_via_gap": 0.25,
-        "diff_pair_width": 0.73,
-        "line_style": 0,
-        "microvia_diameter": 0.3,
-        "microvia_drill": 0.1,
-        "name": "USB_DP_1p2",
-        "nets": [],
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.2,
-        "via_diameter": 0.8,
-        "via_drill": 0.4,
-        "wire_width": 6.0
-      },
-      {
-        "bus_width": 12.0,
-        "clearance": 0.1524,
-        "diff_pair_gap": 0.1524,
-        "diff_pair_via_gap": 0.25,
-        "diff_pair_width": 0.77,
-        "line_style": 0,
-        "microvia_diameter": 0.3,
-        "microvia_drill": 0.1,
-        "name": "USB_DP_1p6",
-        "nets": [
-          "/USB_D+",
-          "/USB_D-"
-        ],
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.2,
         "via_diameter": 0.8,
         "via_drill": 0.4,
         "wire_width": 6.0
@@ -570,7 +412,7 @@
   },
   "sheets": [
     [
-      "fc5aba81-0b5f-4276-86c2-3faa68e4e536",
+      "d7252688-5951-499d-a955-d1b69652b20c",
       ""
     ]
   ],
