@@ -60,7 +60,7 @@
   (fp_circle (center 0 -4.8) (end 0.75 -4.8) (layer "User.2") (width 0.12) (fill none) (tstamp 94fff111-4506-404b-ac73-cf7e1c60f459))
   (pad "" np_thru_hole oval (at 0 6.8) (size 5.5 1.4) (drill oval 5.5 1.4) (layers F&B.Cu *.Mask)
     (zone_connect 2) (tstamp 6076754f-fc9b-476a-bdf5-d770e7d3fdec))
-  (pad "" np_thru_hole circle (at 0 0) (size 3.3 3.3) (drill 3.3) (layers F&B.Cu *.Mask)
+  (pad "" np_thru_hole circle (at 0 0) (size 3.4 3.4) (drill 3.4) (layers F&B.Cu *.Mask)
     (zone_connect 2) (tstamp 90655309-69a7-499d-927b-6d45d2b63f5f))
   (pad "" np_thru_hole oval (at 0 -6.8) (size 5.5 1.4) (drill oval 5.5 1.4) (layers F&B.Cu *.Mask)
     (zone_connect 2) (tstamp c55ccd54-28af-4ab4-883e-eafa97dc9bf8))

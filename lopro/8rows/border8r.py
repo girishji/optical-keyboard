@@ -326,8 +326,8 @@ def draw_border():
         # add_line_arc(end, centerpt(end, 1, RADIUS2), reverse=True, angle=45)
         add_line_arc(end, centerpt(end, 1, RADIUS), reverse=True, angle=15)
     else:
-        add_line_arc(end, centerpt(end, 1, RADIUS2), reverse=True, angle=90)
-        sta = wxPoint(end.x + RADIUS2, end.y + RADIUS2)
+        add_line_arc(end, centerpt(end, 1, RADIUS), reverse=True, angle=90)
+        sta = wxPoint(end.x + RADIUS, end.y + RADIUS)
         end = wxPoint(sta.x + 3 * dim, sta.y)
         add_line(sta, end)
 

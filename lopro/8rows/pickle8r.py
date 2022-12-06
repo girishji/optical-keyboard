@@ -50,5 +50,20 @@ def read_csv():
             print(", ".join(row))
 
 
+# pickle8r.placefp("J1")
+def placefp(sym):
+    with open(os.getenv("KIPRJMOD", "") + "/../pcb/fplocations.csv", "r") as f:
+        reader = csv.reader(f)
+        for row in reader:
+            if row[0] == sym:
+                board = pcbnew.GetBoard()
+                fp = board.FindFootprintByReference(sym)
+                pos = wxPoint(int(row[1]), int(row[2]))
+                fp.SetPosition(pos)
+                fp.SetOrientation(float(row[3]))
+                pcbnew.Refresh()
+                return
+
+
 write_csv()
 read_csv()

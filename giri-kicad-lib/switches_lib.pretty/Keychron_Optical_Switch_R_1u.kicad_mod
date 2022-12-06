@@ -77,7 +77,7 @@
   (pad "" smd roundrect (at 8.07 2.9625 270) (size 0.975 0.95) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25) (tstamp 28147ec2-0475-4212-912f-341e03ff779c))
   (pad "" np_thru_hole oval (at 0 6.8) (size 5.5 1.4) (drill oval 5.5 1.4) (layers F&B.Cu *.Mask)
     (zone_connect 2) (tstamp 6076754f-fc9b-476a-bdf5-d770e7d3fdec))
-  (pad "" np_thru_hole circle (at 0 0) (size 3.3 3.3) (drill 3.3) (layers F&B.Cu *.Mask)
+  (pad "" np_thru_hole circle (at 0 0) (size 3.4 3.4) (drill 3.4) (layers F&B.Cu *.Mask)
     (zone_connect 2) (tstamp 90655309-69a7-499d-927b-6d45d2b63f5f))
   (pad "" np_thru_hole oval (at 0 -6.8) (size 5.5 1.4) (drill oval 5.5 1.4) (layers F&B.Cu *.Mask)
     (zone_connect 2) (tstamp c55ccd54-28af-4ab4-883e-eafa97dc9bf8))

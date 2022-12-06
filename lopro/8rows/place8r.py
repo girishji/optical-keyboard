@@ -175,7 +175,7 @@ class Keyboard(object):
 
         # self.switches[66].place((offs + dim + dim / 4 + 1.0, 4.5 * dim + 7))
         self.switches[66].place((offs + dim + dim / 4 + 0.6, 4.5 * dim + 7))
-        self.switches[66].rotate(28 + 90)
+        self.switches[66].rotate(28 + 90 + 180)
         offs += dim * 1.25
         self.switches[67].place((offs + dim - 1.4, 4 * dim + 5.2))
         self.switches[67].rotate(16)
@@ -556,9 +556,9 @@ def remove_tracks():
 
 
 # remove_tracks()
-# kb = Keyboard()
-# kb.place_footprints()
-# add_holes_M1_6()
+kb = Keyboard()
+kb.place_footprints()
+add_holes_M1_6()
 # kb.add_tracks()
 # kb.add_led_tracks()
 # kb.pullup_resistors()
