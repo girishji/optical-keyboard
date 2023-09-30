@@ -14,7 +14,7 @@
 
 # https://deskthority.net/viewtopic.php?t=20144
 
-from collections import namedtuple
+from enum import Enum
 import itertools
 import math
 import pcbnew
@@ -232,73 +232,136 @@ def draw_arc(start, mid, end, layer=pcbnew.User_2):
 # A vector is an object that has a magnitude and a direction.
 #   Vectors expressed in terms of unit vectors x, y have (x, y),
 #   and others are also called directed line segments ((x1, y1), (x2, y2))
-Vector = namedtuple('Vector', ('x', 'y'))
 
-dot = lambda V, W: V.x * W.x + V.y * W.y
-cross = lambda V, W: V.x * W.y - V.y * W.x
-plus = lambda V, W: Vector(V.x + W.x, V.y + W.y)
-minus = lambda V, W: Vector(V.x - W.x, V.y - W.y)
-mult = lambda V, n: Vector(V.x * n, V.y * n)
-div = lambda V, n: Vector(V.x / n, V.y / n)
-midpt = lambda V, W: div(plus(V, W), 2)
-magnitude = lambda V: math.sqrt(V.x ** 2 + V.y ** 2)
+
+# Vector = namedtuple('Vector', ('x', 'y'))
+
+# dot = lambda V, W: V.x * W.x + V.y * W.y
+# cross = lambda V, W: V.x * W.y - V.y * W.x
+# plus = lambda V, W: Vector(V.x + W.x, V.y + W.y)
+# minus = lambda V, W: Vector(V.x - W.x, V.y - W.y)
+# mult = lambda V, n: Vector(V.x * n, V.y * n)
+# div = lambda V, n: Vector(V.x / n, V.y / n)
+# midpt = lambda V, W: div(plus(V, W), 2)
+# magnitude = lambda V: math.sqrt(V.x ** 2 + V.y ** 2)
+
+# # https://stackoverflow.com/questions/563198/how-do-you-detect-where-two-line-segments-intersect
+# def t_intersect(P, A, Q, B):
+#     """Return intersection point of two directed line segments."""
+
+#     if not isinstance(P, Vector):
+#         P, A, Q, B = (Vector(*P), Vector(*A), Vector(*Q), Vector(*B))
+#     R = minus(A, P)
+#     S = minus(B, Q)
+#     rs = cross(R, S)
+#     t = cross(minus(Q, P), div(S, rs))
+#     u = cross(minus(Q, P), div(R, rs))
+#     return plus(P, mult(R, t))
+
+# def t_draw_rounded(A, B, C, D, radius):
+#     """Draw rounded arc between directed line segments AB and CD and extend lines."""
+
+#     def endpt(Y):
+#         """Return end point of XY continued line."""
+#         YI = minus(I, Y)
+#         ExyI = mult(YI, (magnitudeEabI / magnitude(YI)))
+#         return minus(I, ExyI)
+
+#     if not isinstance(A, Vector):
+#         A, B, C, D = (Vector(*A), Vector(*B), Vector(*C), Vector(*D))
+#     AB, CD = (minus(B, A), minus(D, C))
+#     iangle = math.acos(dot(AB, CD) / (magnitude(AB) * magnitude(CD))) # intersection angle
+#     magnitudeEabI = radius / math.tan(iangle / 2) # length of segment from intersection to end pt
+#     I = intersect(A, B, C, D)
+#     Eab = endpt(B)
+#     Ecd = endpt(D)
+#     M = midpt(Eab, Ecd)
+#     MI = minus(I, M)
+#     magnitudeOI = math.sqrt(magnitudeEabI ** 2 + radius ** 2) # O is the center of rounding circle
+#     OI = mult(MI, magnitudeOI / magnitude(MI))
+#     OMarc = mult(OI, radius / magnitude(OI))
+#     MarcI = minus(OI, OMarc)
+#     Marc = minus(I, MarcI)
+
+#     vec = lambda v: VECTOR2I(wxPointMM(v.x, v.y))
+#     draw_arc(vec(Eab), vec(Marc), vec(Ecd))
+
+def mult(vec, scalar):
+    """Multiply vector with a scalar."""
+    pt = vec.getWxPoint()
+    return VECTOR2I(wxPoint(pt.x * scalar, pt.y * scalar))
+
 
 # https://stackoverflow.com/questions/563198/how-do-you-detect-where-two-line-segments-intersect
 def intersect(P, A, Q, B):
     """Return intersection point of two directed line segments."""
 
-    if not isinstance(P, Vector):
-        P, A, Q, B = (Vector(*P), Vector(*A), Vector(*Q), Vector(*B))
-    R = minus(A, P)
-    S = minus(B, Q)
-    rs = cross(R, S)
-    t = cross(minus(Q, P), div(S, rs))
-    u = cross(minus(Q, P), div(R, rs))
-    return plus(P, mult(R, t))
+    R = A - P
+    S = B - Q
+    rs = R.Cross(S)
+    assert rs != 0, 'Lines maybe parallel or one of the points is the intersection'
+    t = (Q - P).Cross(S / rs)
+    return P + mult(R, t)
 
-def draw_rounded(A, B, C, D, radius):
-    """Draw rounded arc between directed line segments AB and CD and extend lines."""
+
+def arc(A, B, C, D, radius):
+    """Return begin, mid, and end points of arc."""
 
     def endpt(Y):
         """Return end point of XY continued line."""
-        YI = minus(I, Y)
-        ExyI = mult(YI, (magnitudeEabI / magnitude(YI)))
-        return minus(I, ExyI)
+        YI = I - Y
+        ExyI = mult(YI, euclidean_norm_EabI / YI.EuclideanNorm())
+        return I - ExyI
 
-    if not isinstance(A, Vector):
-        A, B, C, D = (Vector(*A), Vector(*B), Vector(*C), Vector(*D))
-    AB, CD = (minus(B, A), minus(D, C))
-    iangle = math.acos(dot(AB, CD) / (magnitude(AB) * magnitude(CD))) # intersection angle
-    magnitudeEabI = radius / math.tan(iangle / 2) # length of segment from intersection to end pt
+    AB, CD = (B - A, D - C)
+    iangle = math.acos(AB.Dot(CD) / (AB.EuclideanNorm() * CD.EuclideanNorm())) # intersection angle
+    euclidean_norm_EabI = radius / math.tan(iangle / 2) # length of segment from intersection to end pt
     I = intersect(A, B, C, D)
     Eab = endpt(B)
     Ecd = endpt(D)
-    M = midpt(Eab, Ecd)
-    MI = minus(I, M)
-    magnitudeOI = math.sqrt(magnitudeEabI ** 2 + radius ** 2) # O is the center of rounding circle
-    OI = mult(MI, magnitudeOI / magnitude(MI))
-    OMarc = mult(OI, radius / magnitude(OI))
-    MarcI = minus(OI, OMarc)
-    Marc = minus(I, MarcI)
+    M = (Eab + Ecd) / 2
+    MI = I - M
+    euclidean_norm_OI = math.sqrt(euclidean_norm_EabI ** 2 + radius ** 2) # O is the center of rounding circle
+    OI = mult(MI, euclidean_norm_OI / MI.EuclideanNorm())
+    OMarc = mult(OI, radius / OI.EuclideanNorm())
+    MarcI = OI - OMarc
+    Marc = I - MarcI
+    return (Eab, Marc, Ecd)
 
-    vec = lambda v: VECTOR2I(wxPointMM(v.x, v.y))
-    draw_arc(vec(Eab), vec(Marc), vec(Ecd))
+
+def corner_arc(A, B, C, D, radius):
+    """Draw rounded arc between directed line segments AB and CD and extend lines."""
+
+    Eab, Marc, Ecd = arc(A, B, C, D, radius)
+    draw_arc(Eab, Marc, Ecd)
+    draw_line(B, Eab)
+    draw_line(C, Ecd)
+
+
+Corner = Enum('Corner', ['TOP_LEFT', 'BOTTOM_LEFT', 'BOTTOM_RIGHT', 'TOP_RIGHT'])
+left = lambda X: X + VECTOR2I(wxPoint(-1, 0))
+right = lambda X: X + VECTOR2I(wxPoint(1, 0))
+up = lambda X: X + VECTOR2I(wxPoint(0, -1))
+down = lambda X: X + VECTOR2I(wxPoint(0, 1))
+
+
+def rectangular_corner_arc(A, B, radius, corner):
+    """Same as corner_arc except lines are horizontal and vertical."""
+
+    endpt_fns = ((left, up), (down, left), (right, down), (up, right))
+    endpt = {crn: dir for crn, dir in zip(Corner, endpt_fns)}
+    corner_arc(A, endpt[corner][0](A), B, endpt[corner][1](B), radius)
 
 
 def draw_border():
     """Draw border."""
 
-    left = lambda X: X + VECTOR2I(wxPoint(-1, 0))
-    up = lambda X: X + VECTOR2I(wxPoint(0, -1))
-    radius = 8 * 1e6
+    radius = 8 * 1e6 # 'mils' (1e6 of mm/in) is the unit used in KiCad
+    d = dim / 2
 
-    A = switches[1].GetPosition() + VECTOR2I(wxPointMM(0, dim - 10))
-    B = switches[16].GetPosition() + VECTOR2I(wxPointMM(dim - 20, 0))
-    draw_rounded(A, left(A), B, up(B), radius)
-
-
-
-
+    A = switches[1].GetPosition() + VECTOR2I(wxPointMM(0, -d - 3))
+    B = switches[45].GetPosition() + VECTOR2I(wxPointMM(-d - 14.25, 0))
+    rectangular_corner_arc(A, B, radius, Corner.TOP_LEFT)
 
 
 
