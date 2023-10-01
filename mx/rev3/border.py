@@ -1,7 +1,7 @@
 # Copyright (C) 2022 Girish Palya <girishji@gmail.com>
 # License: https://opensource.org/licenses/MIT
 #
-# Console script to place mouting holes
+# Console script to place footprints
 #
 # To run as script in python console,
 #   place or symplink this script to ~/Documents/KiCad/6.0/scripting/plugins
@@ -12,41 +12,19 @@
 #  OR
 #    exec(open("path-to-script-file").read())
 
-import pcbnew
-from pcbnew import wxPoint
+import itertools
 import math
+import pcbnew
+from pcbnew import VECTOR2I, wxPoint, wxPointMM
 
+dim = 19.00
+COUNT = 72
+board =pcbnew.GetBoard()
 
-DIM = 19.05 * pcbnew.IU_PER_MM
-# RADIUS = 3.0 * pcbnew.IU_PER_MM
-RADIUS = 2.0 * pcbnew.IU_PER_MM
-RADIUS2 = 8.0 * pcbnew.IU_PER_MM
-# BORDER = 3.0 * pcbnew.IU_PER_MM
-BORDER = 0.75 * pcbnew.IU_PER_MM
+switches = [board.FindFootprintByReference('S' + str(num)) for num in range(COUNT + 1)]
 
-WR = {
-    "offset": 64 * pcbnew.IU_PER_MM,
-    # "depth": 87 * pcbnew.IU_PER_MM,
-    "standoff": 28 * pcbnew.IU_PER_MM,
-    # "width": 90 * pcbnew.IU_PER_MM,
-    "width": 88 * pcbnew.IU_PER_MM,
-    "height": 65 * pcbnew.IU_PER_MM,
-}
-
-SWITCHES = [pcbnew.GetBoard().FindFootprintByReference("S1")]  # dummy
-for i in range(1, 75):
-    SWITCHES.append(pcbnew.GetBoard().FindFootprintByReference("S" + str(i)))
-
-
-def pcb_type():
-    if pcbnew.GetBoard().FindFootprintByReference("Hs" + str(22)):
-        return "pcb"
-    if pcbnew.GetBoard().FindFootprintByReference("Hs" + str(12)):
-        return "sw_plate"
-    return "wr_plate"
-
-
-def add_line(start, end, layer=pcbnew.Edge_Cuts):
+# def draw_line(start, end, layer=pcbnew.Edge_Cuts):
+def draw_line(start, end, layer=pcbnew.User_2):
     board = pcbnew.GetBoard()
     ls = pcbnew.PCB_SHAPE(board)
     ls.SetShape(pcbnew.SHAPE_T_SEGMENT)
@@ -56,298 +34,253 @@ def add_line(start, end, layer=pcbnew.Edge_Cuts):
     # ls.SetWidth(int(0.12 * pcbnew.IU_PER_MM))
     board.Add(ls)
 
-
-def add_line_arc(start, center, reverse=False, angle=-90, layer=pcbnew.Edge_Cuts):
+def draw_arc(start, mid, end, layer=pcbnew.User_2):
     board = pcbnew.GetBoard()
     arc = pcbnew.PCB_SHAPE(board)
     arc.SetShape(pcbnew.SHAPE_T_ARC)
-    arc.SetStart(start)
-    arc.SetCenter(center)
-    arc.SetArcAngleAndEnd(-angle * 10, reverse)
+    arc.SetArcGeometry(start, mid, end)
     arc.SetLayer(layer)
-    # arc.SetWidth(int(0.12 * pcbnew.IU_PER_MM))
     board.Add(arc)
 
+# Resources:
+# https://www.nagwa.com/en/explainers/606170705790/
+# https://www.nagwa.com/en/explainers/578165351487/
+# Learn about unit vectors, expressing vector A in terms of B and C, intersection point,
+# dot product, cross product, etc.
+# https://www.nagwa.com/en/explainers/762143183130/
+# A vector is an object that has a magnitude and a direction.
+# A Vector is expressed as (x, y) in terms of unit vectors along x, y.
+# Directed line segments are written as ((x1, y1), (x2, y2)).
 
-def centerpt(start, quadrant, d=RADIUS):
-    ctr = {
-        1: wxPoint(start.x + d, start.y),
-        2: wxPoint(start.x, start.y + d),
-        3: wxPoint(start.x - d, start.y),
-        4: wxPoint(start.x, start.y - d),
-    }
-    return ctr[quadrant]
-
-
-def endpt(start, quadrant, d=RADIUS):
-    end = {
-        1: wxPoint(start.x + d, start.y + d),
-        2: wxPoint(start.x - d, start.y + d),
-        3: wxPoint(start.x - d, start.y - d),
-        4: wxPoint(start.x + d, start.y - d),
-    }
-    return end[quadrant]
-
-
-def transform(pt, around, theta):
-    matrix = [
-        [math.cos(math.radians(theta)), -math.sin(math.radians(theta))],
-        [math.sin(math.radians(theta)), math.cos(math.radians(theta))],
-    ]
-    return wxPoint(
-        around.x + pt.x * matrix[0][0] + pt.y * matrix[0][1],
-        around.y + pt.x * matrix[1][0] + pt.y * matrix[1][1],
-    )
+# Based on:
+# https://stackoverflow.com/questions/563198/how-do-you-detect-where-two-line-segments-intersect
+def intersect(P, A, Q, B):
+    """Return intersection point of two directed line segments."""
+    R, S = (A - P, B - Q)
+    rs = R.Cross(S)
+    assert rs != 0, 'Lines maybe parallel or one of the points is the intersection'
+    t = (Q - P).Cross(S) / rs
+    return P + R.Resize(int(R.EuclideanNorm() * t))
 
 
-def remove_drawings():
-    board = pcbnew.GetBoard()
-    for t in board.GetDrawings():
-        board.Delete(t)
+def arc(A, B, C, D, radius):
+    """Return begin, mid, and end points of arc."""
+    I = intersect(A, B, C, D)
+    AB, CD = (B - A, D - C)
+    iangle = math.acos(AB.Dot(CD) / (AB.EuclideanNorm() * CD.EuclideanNorm())) # intersection angle
+    norm_EabI = int(radius / math.tan(iangle / 2)) # length of segment from intersection to end pt
+    BEab = AB.Resize((I - A).EuclideanNorm() - AB.EuclideanNorm() - norm_EabI) # AI = I - A
+    Eab = B + BEab
+    BEcd = CD.Resize((I - C).EuclideanNorm() - CD.EuclideanNorm() - norm_EabI)
+    Ecd = D + BEcd
+    M = (Eab + Ecd) / 2
+    MI = I - M
+    norm_OI = math.sqrt(norm_EabI ** 2 + radius ** 2) # O is the center of rounding circle
+    MarcI = MI.Resize(int(norm_OI - radius))
+    Marc = I - MarcI
+    return (Eab, Marc, Ecd)
 
 
-def draw_border_tilted_keys():
-    dim = DIM
-    brd = BORDER
-    rad = RADIUS
-    board = pcbnew.GetBoard()
-    switches = SWITCHES
-    clearance = 2 * pcbnew.IU_PER_MM
-
-    sw = switches[62].GetPosition()
-    degl = -switches[62].GetOrientation() // 10
-    lsta = wxPoint(-dim / 2 + 2 * clearance, dim / 2 + brd)
-    lend = wxPoint(dim / 2 - clearance, dim / 2 + brd)
-    sta = transform(lsta, sw, degl)
-    end = transform(lend, sw, degl)
-    add_line(sta, end)
-
-    sw = switches[63].GetPosition()
-    degl = -switches[63].GetOrientation() // 10
-    lsta = wxPoint(-dim / 2 - dim / 8 + 2 * clearance, dim / 2 + brd)
-    lend = wxPoint(dim / 2 - brd - rad + clearance / 2, dim / 2 + brd)
-    sta = transform(lsta, sw, degl)
-    add_line(sta, end)
-    end = transform(lend, sw, degl)
-    add_line(sta, end)
-    ctr = transform(wxPoint(lend.x, lend.y + rad), sw, degl)
-    add_line_arc(end, ctr, angle=-98)
-
-    sw = switches[64].GetPosition()
-    deg = 90 - switches[64].GetOrientation() // 10
-    lsta = wxPoint(-dim / 2 - brd + rad, dim / 2 + dim / 8 + brd)
-    lend = wxPoint(dim / 2 + brd - rad, dim / 2 + dim / 8 + brd)
-    sta = transform(lsta, sw, deg)
-    end = transform(lend, sw, deg)
-    add_line(sta, end)
-    ctr = transform(wxPoint(lsta.x, lsta.y - rad), sw, deg)
-    add_line_arc(sta, ctr, angle=-90)
-    ctr = transform(wxPoint(lend.x, lend.y - rad), sw, deg)
-    add_line_arc(end, ctr, reverse=True, angle=90)
-    lend1 = wxPoint(lend.x + rad, lend.y - rad)
-    end1 = transform(lend1, sw, deg)
-    lend2 = wxPoint(lend1.x, lend1.y - dim + 3 * rad / 4 - dim / 8 - clearance)
-    end2 = transform(lend2, sw, deg)
-    add_line(end1, end2)
-    ctr = transform(wxPoint(lend2.x + rad, lend2.y), sw, deg)
-    add_line_arc(end2, ctr, reverse=False, angle=-90 + deg)
-
-    sw = switches[68].GetPosition()
-    degl = -switches[68].GetOrientation() // 10
-    lsta = wxPoint(-dim / 2 + clearance, dim / 2 + brd)
-    lend = wxPoint(dim / 2 - clearance, dim / 2 + brd)
-    sta1 = transform(lsta, sw, degl)
-    end = transform(lend, sw, degl)
-    add_line(sta1, end)
-
-    sw = switches[67].GetPosition()
-    degr = -switches[67].GetOrientation() // 10
-    lsta = wxPoint(dim / 2 - clearance, dim / 2 + brd)
-    lend = wxPoint(-dim / 2 + rad + brd + 0.5 * clearance, dim / 2 + brd)
-    sta = transform(lend, sw, degr)
-    end = transform(lsta, sw, degr)
-    add_line(sta, end)
-    add_line(sta1, end)
-    end = transform(lend, sw, degr)
-    add_line(sta, end)
-    ctr = transform(wxPoint(lend.x, lend.y + rad), sw, degr)
-    add_line_arc(end, ctr, reverse=True, angle=98)
-
-    sw = switches[66].GetPosition()
-    deg = 90 - switches[66].GetOrientation() // 10
-    lend = wxPoint(-dim / 2 - brd + rad, dim / 2 + dim / 8 + brd)
-    lsta = wxPoint(dim / 2 + brd - rad, dim / 2 + dim / 8 + brd)
-    sta = transform(lsta, sw, deg)
-    end = transform(lend, sw, deg)
-    add_line(sta, end)
-    ctr = transform(wxPoint(lsta.x, lsta.y - rad), sw, deg)
-    add_line_arc(sta, ctr, reverse=True, angle=98)
-    ctr = transform(wxPoint(lend.x, lend.y - rad), sw, deg)
-    add_line_arc(end, ctr, reverse=False, angle=-90)
-    lend1 = wxPoint(lend.x - rad, lend.y - rad)
-    end1 = transform(lend1, sw, deg)
-    lend2 = wxPoint(lend1.x, lend1.y - dim + 3 * rad / 4 - dim / 8 - clearance)
-    end2 = transform(lend2, sw, deg)
-    add_line(end1, end2)
-    ctr = transform(wxPoint(lend2.x - rad, lend2.y), sw, deg)
-    add_line_arc(end2, ctr, reverse=True, angle=90 + deg)
+def corner_arc(AB, CD, radius):
+    """Draw rounded arc between directed line segments AB and CD and extend lines."""
+    A, B, C, D = *AB, *CD
+    Eab, Marc, Ecd = arc(A, B, C, D, radius)
+    draw_arc(Eab, Marc, Ecd)
+    draw_line(B, Eab)
+    draw_line(C, Ecd)
 
 
-def draw_wrist_support():
-    rad = RADIUS2
-    # hole_offset = -rad + (4.5 + 1.0) * pcbnew.IU_PER_MM
-    hole_offset = -rad + (5.5 + 1.0) * pcbnew.IU_PER_MM
-    dim = DIM
-    brd = BORDER
-    switches = SWITCHES
-
-    def place_hole(num, loc):
-        if pcb_type() == "sw_plate":
-            return
-        hole = pcbnew.GetBoard().FindFootprintByReference("Hs" + str(num))
-        hole.SetPosition(loc)
-
-    # 'shrink' parameter is for the cutout
-    def support_lines(ctr, holenum, shrink=0):
-        sta = wxPoint(
-            ctr.x - WR["offset"] - shrink,
-            ctr.y + dim / 2 + WR["standoff"] + rad + shrink,
-        )
-        begin = wxPoint(sta.x - rad, sta.y - rad)
-        add_line_arc(sta, centerpt(sta, 3, rad), reverse=True, angle=90)
-        if holenum:
-            place_hole(holenum, wxPoint(sta.x - rad - hole_offset, sta.y + hole_offset))
-        end = wxPoint(sta.x, sta.y + WR["height"] - 2 * rad - shrink * 2)
-        add_line(sta, end)
-        add_line_arc(end, centerpt(end, 3, rad), reverse=False, angle=-90)
-        if holenum:
-            holenum += 1
-            place_hole(holenum, wxPoint(end.x - rad - hole_offset, end.y - hole_offset))
-        sta = wxPoint(end.x - rad, end.y + rad)
-        end = wxPoint(sta.x - WR["width"] + 2 * rad + 2 * shrink, sta.y)
-        add_line(sta, end)
-        add_line_arc(end, centerpt(end, 4, rad), reverse=False, angle=-90)
-        if holenum:
-            holenum += 1
-            place_hole(holenum, wxPoint(end.x + hole_offset, end.y - rad - hole_offset))
-        sta = wxPoint(end.x - rad, end.y - rad)
-        end = wxPoint(sta.x, sta.y - WR["height"] + 2 * rad + 2 * shrink)
-        add_line(sta, end)
-        add_line_arc(end, centerpt(end, 1, rad), reverse=False, angle=-90)
-        if holenum:
-            holenum += 1
-            place_hole(holenum, wxPoint(end.x + rad + hole_offset, end.y + hole_offset))
-        end = wxPoint(end.x + rad, end.y - rad)
-        add_line(begin, end, layer=pcbnew.Dwgs_User)
-
-    def support_offset(ctr, side="left"):
-        # extend = 2 * pcbnew.IU_PER_MM
-        extend = 0 * pcbnew.IU_PER_MM
-        if pcb_type() != "pcb":
-            return
-        sta = wxPoint(ctr.x - WR["offset"] - rad, ctr.y + dim / 2 + WR["standoff"])
-        end = wxPoint(sta.x - extend, sta.y)
-        add_line(sta, end)
-        add_line_arc(end, centerpt(end, 4, rad), reverse=False, angle=-90)
-        sta = wxPoint(end.x - rad, end.y - rad)
-        end = wxPoint(sta.x, ctr.y + dim / 2 + brd + rad)
-        add_line(sta, end)
-        add_line_arc(
-            end,
-            centerpt(end, 1, rad),
-            reverse=False,
-            angle=-70 if side == "left" else -90,
-        )
-
-        sta = wxPoint(
-            ctr.x - WR["offset"] - WR["width"] + rad, ctr.y + dim / 2 + WR["standoff"]
-        )
-        end = wxPoint(sta.x + extend, sta.y)
-        add_line(sta, end)
-        add_line_arc(end, centerpt(end, 4, rad), reverse=True, angle=90)
-        sta = wxPoint(end.x + rad, end.y - rad)
-        end = wxPoint(sta.x, ctr.y + dim / 2 + brd + rad)
-        add_line(sta, end)
-        add_line_arc(
-            # end, centerpt(end, 3, rad), reverse=True, angle=60 if side == "left" else 90
-            end,
-            centerpt(end, 3, rad),
-            reverse=True,
-            angle=15 if side == "left" else 90,
-        )
-        # Decorative hole
-        cradius = 9 * pcbnew.IU_PER_MM
-        sta = wxPoint(
-            ctr.x - WR["offset"] - WR["width"] / 2 - cradius,
-            ctr.y + dim / 2 + WR["standoff"] / 2,
-        )
-        add_line_arc(sta, centerpt(sta, 1, cradius), reverse=False, angle=-360)
-
-    shrinkage = 11 * pcbnew.IU_PER_MM
-    if pcb_type() == "wr_plate":
-        support_lines(wxPoint(WR["offset"] + WR["width"], 0), 1)
-        support_lines(wxPoint(WR["offset"] + WR["width"], 0), 0, shrinkage)
-    else:
-        ctr = switches[65].GetPosition()
-        holenum = 1 + 17
-        support_lines(ctr, holenum)
-        support_lines(ctr, 0, shrinkage)
-        support_offset(ctr)
-        ctr = wxPoint(ctr.x + 2 * WR["offset"] + WR["width"], ctr.y)
-        support_lines(ctr, holenum + 4)
-        support_lines(ctr, 0, shrinkage)
-        support_offset(ctr, side="right")
+def rotate(V, theta):
+    """Rotate a vector by angle theta."""
+    sin, cos = (math.sin(math.radians(theta)), math.cos(math.radians(theta)))
+    return VECTOR2I(int(cos * V.x - sin * V.y), int(sin * V.x + cos * V.y))
 
 
 def draw_border():
-    dim = DIM
-    brd = BORDER
-    switches = SWITCHES
-    clearance = 0.0 * pcbnew.IU_PER_MM
-    # clearance = 0.7 * pcbnew.IU_PER_MM
-    rad1 = 2 * pcbnew.IU_PER_MM
-    left_offset = 0.0 * pcbnew.IU_PER_MM
+    """Draw border."""
 
-    if pcb_type() == "wr_plate":
-        draw_wrist_support()
-        return
+    mil = lambda x: int(x * 1e6)
+    d  =  mil(dim / 2)
+    radius, radius2 = mil(8), mil(2)
+    vlen = mil(0.1) # length of vector used for starting point
+    wrist = {'xoffset': mil(64), 'yoffset': mil(27), 'width': mil(88), 'height': mil(65)}
 
-    swl = switches[45].GetPosition()
-    swr = switches[15].GetPosition()
-    tl = wxPoint(swl.x - dim / 2 - brd + RADIUS2 - left_offset, swr.y - dim / 2 - brd)
-    tr = wxPoint(swr.x + dim / 2 + brd - rad1 + clearance, tl.y)
-    add_line(tl, tr)
-    add_line_arc(tl, centerpt(tl, 2, RADIUS2), reverse=True, angle=90)
-    add_line_arc(tr, centerpt(tr, 2, rad1), reverse=False, angle=-90)
-    sta = endpt(tl, 2, RADIUS2)
-    end = wxPoint(tl.x - RADIUS2, swl.y + 1.5 * dim - RADIUS + brd)
-    add_line(endpt(tl, 2, RADIUS2), end)
-    if pcb_type() == "pcb":
-        # add_line_arc(end, centerpt(end, 1, RADIUS2), reverse=True, angle=45)
-        add_line_arc(end, centerpt(end, 1, RADIUS), reverse=True, angle=15)
-    else:
-        add_line_arc(end, centerpt(end, 1, RADIUS), reverse=True, angle=90)
-        sta = wxPoint(end.x + RADIUS, end.y + RADIUS)
-        end = wxPoint(sta.x + 3 * dim, sta.y)
-        add_line(sta, end)
+    # Create directed line segment from vector X
+    left = lambda X, angle=0: (X, X + rotate(VECTOR2I(-vlen, 0), angle))
+    right = lambda X, angle=0: (X, X + rotate(VECTOR2I(vlen, 0), angle))
+    up = lambda X, angle=0: (X, X + rotate(VECTOR2I(0, -vlen), angle))
+    down = lambda X, angle=0: (X, X + rotate(VECTOR2I(0, vlen), angle))
 
-    sta = wxPoint(tr.x + rad1, tr.y + rad1)
-    sw = switches[72].GetPosition()
-    end = wxPoint(tr.x + rad1, sw.y + dim / 2 + brd - RADIUS2)
-    add_line(sta, end)
-    add_line_arc(end, centerpt(end, 3, RADIUS2), reverse=False, angle=-90)
-    if pcb_type() != "pcb":
-        sta = wxPoint(end.x - RADIUS2, end.y + RADIUS2)
-        end = wxPoint(sta.x - 4 * dim, sta.y)
-        add_line(sta, end)
+    # Left bottom portion
+    L = R = switches[65].GetPosition() + VECTOR2I(0, d + mil(1))
+    angle = -switches[64].GetOrientationDegrees()
+    M = switches[64].GetPosition() + rotate(VECTOR2I(0, d + mil(1)), angle)
+    corner_arc(left(L), right(M, angle), radius2)
+    L = M
+    M = switches[64].GetPosition() + rotate(VECTOR2I(-int(d * 1.25) - mil(1), 0), angle)
+    corner_arc(left(L, angle), down(M, angle), radius2)
+    L = VECTOR2I(M)
+    M += rotate(VECTOR2I(radius2 + vlen, -d - mil(1)), angle)
+    corner_arc(up(L, angle), left(M, angle), radius2)
+    L = M
+    angle2 = -switches[63].GetOrientationDegrees()
+    M = switches[63].GetPosition() + rotate(VECTOR2I(0, d + mil(1)), angle2)
+    corner_arc(right(L, angle), right(M, angle2), radius2)
+    L, angle = (M, angle2)
+    angle2 = -switches[62].GetOrientationDegrees()
+    M = switches[62].GetPosition() + rotate(VECTOR2I(0, d + mil(1)), angle2)
+    corner_arc(left(L, angle), right(M, angle2), radius2)
 
-    draw_border_tilted_keys()
-    if pcb_type() == "pcb":
-        draw_wrist_support()
+    # Right bottom portion
+    angle = -switches[66].GetOrientationDegrees()
+    S = switches[66].GetPosition() + rotate(VECTOR2I(0, d + mil(1)), angle)
+    corner_arc(right(R), left(S, angle), radius2)
+    R = S
+    S = switches[66].GetPosition() + rotate(VECTOR2I(int(d * 1.25) + mil(1), 0), angle)
+    corner_arc(right(R, angle), down(S, angle), radius2)
+    R = VECTOR2I(S)
+    S += rotate(VECTOR2I(-radius2 - vlen, -d - mil(1)), angle)
+    corner_arc(up(R, angle), right(S, angle), radius2)
+    R = S
+    angle2 = -switches[67].GetOrientationDegrees()
+    S = switches[67].GetPosition() + rotate(VECTOR2I(0, d + mil(1)), angle2)
+    corner_arc(left(R, angle), left(S, angle2), radius2)
+    R, angle = (S, angle2)
+    angle2 = -switches[68].GetOrientationDegrees()
+    S = switches[68].GetPosition() + rotate(VECTOR2I(0, d + mil(1)), angle2)
+    corner_arc(right(R, angle), left(S, angle2), radius2)
 
-    pcbnew.Refresh()
+    # Right wrist area
+    R, angle = (S, angle2)
+    S = switches[65].GetPosition() + VECTOR2I(wrist['xoffset'] + 2 * (radius + vlen),
+                                              int(wrist['yoffset'] / 2) + d)
+    corner_arc(right(R, angle), up(S), radius)
+    R = VECTOR2I(S)
+    S += VECTOR2I(-radius - vlen, int(wrist['yoffset'] / 2 + mil(1)))
+    corner_arc(down(R), right(S), radius)
+    R = VECTOR2I(S)
+    S += VECTOR2I(-radius - vlen, wrist['height'] - vlen - radius)
+    corner_arc(left(R), up(S), radius)
+    R = VECTOR2I(S)
+    S += VECTOR2I(radius + vlen, radius + vlen)
+    corner_arc(down(R), left(S), radius)
+    R = VECTOR2I(S)
+    S += VECTOR2I(wrist['width'] - radius - vlen, -radius - vlen)
+    corner_arc(right(R), down(S), radius)
+    R = VECTOR2I(S)
+    S += VECTOR2I(-radius - vlen, -wrist['height'] + radius + vlen)
+    corner_arc(up(R), right(S), radius)
+    R = VECTOR2I(S)
+    S += VECTOR2I(-radius - vlen, -radius - vlen)
+    corner_arc(left(R), down(S), radius)
+    R = VECTOR2I(S)
+    S += VECTOR2I(radius + vlen, -wrist['yoffset'] + radius)
+    corner_arc(up(R), left(S), radius)
+    R = S
+    S = switches[15].GetPosition() + VECTOR2I(d + mil(1), 0)
+    corner_arc(right(R), down(S), radius)
+    R = S
+    S = switches[15].GetPosition() + VECTOR2I(0, -d - mil(3))
+    corner_arc(up(R), right(S), mil(4))
+
+    # Left wrist area
+    L, angle = (M, -switches[62].GetOrientationDegrees())
+    M = switches[65].GetPosition() + VECTOR2I(-wrist['xoffset'] - 2 * (radius + vlen),
+                                              int(wrist['yoffset'] / 2) + d)
+    corner_arc(left(L, angle), up(M), radius)
+    L = VECTOR2I(M)
+    M += VECTOR2I(radius + vlen, int(wrist['yoffset'] / 2 + mil(1)))
+    corner_arc(down(L), left(M), radius)
+    L = VECTOR2I(M)
+    M += VECTOR2I(radius + vlen, wrist['height'] - vlen - radius)
+    corner_arc(right(L), up(M), radius)
+    L = VECTOR2I(M)
+    M += VECTOR2I(-radius - vlen, radius + vlen)
+    corner_arc(down(L), right(M), radius)
+    L = VECTOR2I(M)
+    M += VECTOR2I(-wrist['width'] + radius + vlen, -radius - vlen)
+    corner_arc(left(L), down(M), radius)
+    L = VECTOR2I(M)
+    M += VECTOR2I(radius + vlen, -wrist['height'] + radius + 2 * vlen)
+    corner_arc(up(L), left(M), radius)
+    L = VECTOR2I(M)
+    M += VECTOR2I(radius + vlen, -radius - vlen)
+    corner_arc(right(L), down(M), radius)
+    L = VECTOR2I(M)
+    M += VECTOR2I(-radius - vlen, -wrist['yoffset'] + radius)
+    corner_arc(up(L), right(M), radius)
+    L = VECTOR2I(M)
+    M += VECTOR2I(-radius - vlen, -radius - vlen)
+    corner_arc(left(L), down(M), radius)
+    L = M
+    M = switches[1].GetPosition() + VECTOR2I(0, -d - mil(3))
+    corner_arc(up(L), left(M), radius)
+    draw_line(M, S)
 
 
-remove_drawings()
+
+
+    # A = switches[1].GetPosition() + VECTOR2I(0, -d - mil(3))
+    # B = switches[45].GetPosition() + VECTOR2I(-d - mil(14.25), 0)
+    # corner_arc(left(A), up(B), radius)
+
+    # A = VECTOR2I(B)
+    # B = VECTOR2I(B.x + radius + vlen, switches[72].GetPosition().y + d + nextpt + mil(1))
+    # corner_arc(down(A), left(B), radius)
+
+    # A = VECTOR2I(B)
+    # B += VECTOR2I(radius + vlen, radius + nextpt)
+    # corner_arc(right(A), up(B), radius)
+
+    # A = VECTOR2I(B)
+    # B += VECTOR2I(-radius - vlen, wrist['yoffset'] - radius)
+    # corner_arc(down(A), right(B), radius)
+
+    # A = VECTOR2I(B)
+    # B += VECTOR2I(-radius - vlen, radius + nextpt)
+    # corner_arc(left(A), up(B), radius)
+
+    # A = VECTOR2I(B)
+    # B += VECTOR2I(radius + vlen, wrist['height'] - radius - nextpt)
+    # corner_arc(down(A), left(B), radius)
+
+    # A = VECTOR2I(B)
+    # B += VECTOR2I(wrist['width'] - radius - vlen, -radius - nextpt)
+    # corner_arc(right(A), down(B), radius)
+
+    # A = VECTOR2I(B)
+    # B += VECTOR2I(-radius - vlen, -wrist['height'] + radius + nextpt)
+    # corner_arc(up(A), right(B), radius)
+
+    # A = VECTOR2I(B)
+    # B += VECTOR2I(-radius - vlen, -radius - nextpt)
+    # corner_arc(left(A), down(B), radius)
+
+    # A = VECTOR2I(B)
+    # ctr, angle = (switches[62].GetPosition(), switches[62].GetOrientationDegrees())
+    # C, D = (VECTOR2I(0, d + mil(1)), VECTOR2I(-vlen, d + mil(1)))
+    # C, D = (ctr + rotate(C, -angle), ctr + rotate(D, -angle))
+    # corner_arc(up(A), (C, D), radius)
+
+    # DC = C - D
+    # A, B = (C, C + DC)
+    # ctr, angle = (switches[63].GetPosition(), switches[63].GetOrientationDegrees())
+    # C, D = (VECTOR2I(0, d + mil(1)), VECTOR2I(-vlen, d + mil(1)))
+    # C, D = (ctr + rotate(C, -angle), ctr + rotate(D, -angle))
+    # corner_arc((A, B), (C, D), radius)
+
+
+def remove_border():
+    board = pcbnew.GetBoard()
+    for t in board.GetDrawings():
+        if t.GetLayer() == pcbnew.User_2:
+            board.Delete(t)
+
+
+
+
+remove_border()
 draw_border()
+# place holes
+
 pcbnew.Refresh()
