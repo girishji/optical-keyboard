@@ -108,6 +108,9 @@ def place_switches():
 
 
 def transform(pt, around, theta):
+    """
+    Rotate vector 'pt' by 'theta' degrees. Add vector 'around' to vector 'pt'.
+    """
     matrix = [
         [math.cos(math.radians(theta)), -math.sin(math.radians(theta))],
         [math.sin(math.radians(theta)), math.cos(math.radians(theta))],
@@ -116,6 +119,7 @@ def transform(pt, around, theta):
         around.x + pt.x * matrix[0][0] + pt.y * matrix[0][1],
         around.y + pt.x * matrix[1][0] + pt.y * matrix[1][1],
     )
+
 
 def place_leds():
     leds = [board.FindFootprintByReference('D' + str(num)) for num in range(1, COUNT + 1)]
@@ -211,17 +215,6 @@ def draw_arc(start, mid, end, layer=pcbnew.User_2):
     arc.SetLayer(layer)
     board.Add(arc)
 
-# def draw_arc(start, center, reverse=False, angle=-90, layer=pcbnew.Edge_Cuts):
-#     board = pcbnew.GetBoard()
-#     arc = pcbnew.PCB_SHAPE(board)
-#     arc.SetShape(pcbnew.SHAPE_T_ARC)
-#     arc.SetStart(start)
-#     arc.SetCenter(center)
-#     arc.SetArcAngleAndEnd(-angle * 10, reverse)
-#     arc.SetLayer(layer)
-#     # arc.SetWidth(int(0.12 * pcbnew.IU_PER_MM))
-#     board.Add(arc)
-
 
 # https://www.nagwa.com/en/explainers/606170705790/
 # https://www.nagwa.com/en/explainers/578165351487/
@@ -234,134 +227,121 @@ def draw_arc(start, mid, end, layer=pcbnew.User_2):
 #   and others are also called directed line segments ((x1, y1), (x2, y2))
 
 
-# Vector = namedtuple('Vector', ('x', 'y'))
-
-# dot = lambda V, W: V.x * W.x + V.y * W.y
-# cross = lambda V, W: V.x * W.y - V.y * W.x
-# plus = lambda V, W: Vector(V.x + W.x, V.y + W.y)
-# minus = lambda V, W: Vector(V.x - W.x, V.y - W.y)
-# mult = lambda V, n: Vector(V.x * n, V.y * n)
-# div = lambda V, n: Vector(V.x / n, V.y / n)
-# midpt = lambda V, W: div(plus(V, W), 2)
-# magnitude = lambda V: math.sqrt(V.x ** 2 + V.y ** 2)
-
-# # https://stackoverflow.com/questions/563198/how-do-you-detect-where-two-line-segments-intersect
-# def t_intersect(P, A, Q, B):
-#     """Return intersection point of two directed line segments."""
-
-#     if not isinstance(P, Vector):
-#         P, A, Q, B = (Vector(*P), Vector(*A), Vector(*Q), Vector(*B))
-#     R = minus(A, P)
-#     S = minus(B, Q)
-#     rs = cross(R, S)
-#     t = cross(minus(Q, P), div(S, rs))
-#     u = cross(minus(Q, P), div(R, rs))
-#     return plus(P, mult(R, t))
-
-# def t_draw_rounded(A, B, C, D, radius):
-#     """Draw rounded arc between directed line segments AB and CD and extend lines."""
-
-#     def endpt(Y):
-#         """Return end point of XY continued line."""
-#         YI = minus(I, Y)
-#         ExyI = mult(YI, (magnitudeEabI / magnitude(YI)))
-#         return minus(I, ExyI)
-
-#     if not isinstance(A, Vector):
-#         A, B, C, D = (Vector(*A), Vector(*B), Vector(*C), Vector(*D))
-#     AB, CD = (minus(B, A), minus(D, C))
-#     iangle = math.acos(dot(AB, CD) / (magnitude(AB) * magnitude(CD))) # intersection angle
-#     magnitudeEabI = radius / math.tan(iangle / 2) # length of segment from intersection to end pt
-#     I = intersect(A, B, C, D)
-#     Eab = endpt(B)
-#     Ecd = endpt(D)
-#     M = midpt(Eab, Ecd)
-#     MI = minus(I, M)
-#     magnitudeOI = math.sqrt(magnitudeEabI ** 2 + radius ** 2) # O is the center of rounding circle
-#     OI = mult(MI, magnitudeOI / magnitude(MI))
-#     OMarc = mult(OI, radius / magnitude(OI))
-#     MarcI = minus(OI, OMarc)
-#     Marc = minus(I, MarcI)
-
-#     vec = lambda v: VECTOR2I(wxPointMM(v.x, v.y))
-#     draw_arc(vec(Eab), vec(Marc), vec(Ecd))
-
-def mult(vec, scalar):
-    """Multiply vector with a scalar."""
-    pt = vec.getWxPoint()
-    return VECTOR2I(wxPoint(pt.x * scalar, pt.y * scalar))
-
 
 # https://stackoverflow.com/questions/563198/how-do-you-detect-where-two-line-segments-intersect
 def intersect(P, A, Q, B):
     """Return intersection point of two directed line segments."""
-
-    R = A - P
-    S = B - Q
+    R, S = (A - P, B - Q)
     rs = R.Cross(S)
     assert rs != 0, 'Lines maybe parallel or one of the points is the intersection'
-    t = (Q - P).Cross(S / rs)
-    return P + mult(R, t)
+    t = (Q - P).Cross(S) / rs
+    return P + R.Resize(int(R.EuclideanNorm() * t))
 
 
 def arc(A, B, C, D, radius):
     """Return begin, mid, and end points of arc."""
-
-    def endpt(Y):
-        """Return end point of XY continued line."""
-        YI = I - Y
-        ExyI = mult(YI, euclidean_norm_EabI / YI.EuclideanNorm())
-        return I - ExyI
-
+    I = intersect(A, B, C, D)
     AB, CD = (B - A, D - C)
     iangle = math.acos(AB.Dot(CD) / (AB.EuclideanNorm() * CD.EuclideanNorm())) # intersection angle
-    euclidean_norm_EabI = radius / math.tan(iangle / 2) # length of segment from intersection to end pt
-    I = intersect(A, B, C, D)
-    Eab = endpt(B)
-    Ecd = endpt(D)
+    norm_EabI = int(radius / math.tan(iangle / 2)) # length of segment from intersection to end pt
+    BEab = AB.Resize((I - A).EuclideanNorm() - AB.EuclideanNorm() - norm_EabI) # AI = I - A
+    Eab = B + BEab
+    BEcd = CD.Resize((I - C).EuclideanNorm() - CD.EuclideanNorm() - norm_EabI)
+    Ecd = D + BEcd
     M = (Eab + Ecd) / 2
     MI = I - M
-    euclidean_norm_OI = math.sqrt(euclidean_norm_EabI ** 2 + radius ** 2) # O is the center of rounding circle
-    OI = mult(MI, euclidean_norm_OI / MI.EuclideanNorm())
-    OMarc = mult(OI, radius / OI.EuclideanNorm())
-    MarcI = OI - OMarc
+    norm_OI = math.sqrt(norm_EabI ** 2 + radius ** 2) # O is the center of rounding circle
+    MarcI = MI.Resize(int(norm_OI - radius))
     Marc = I - MarcI
     return (Eab, Marc, Ecd)
 
 
-def corner_arc(A, B, C, D, radius):
+def corner_arc(AB, CD, radius):
     """Draw rounded arc between directed line segments AB and CD and extend lines."""
-
+    A, B, C, D = *AB, *CD
     Eab, Marc, Ecd = arc(A, B, C, D, radius)
     draw_arc(Eab, Marc, Ecd)
     draw_line(B, Eab)
     draw_line(C, Ecd)
 
 
-Corner = Enum('Corner', ['TOP_LEFT', 'BOTTOM_LEFT', 'BOTTOM_RIGHT', 'TOP_RIGHT'])
-left = lambda X: X + VECTOR2I(wxPoint(-1, 0))
-right = lambda X: X + VECTOR2I(wxPoint(1, 0))
-up = lambda X: X + VECTOR2I(wxPoint(0, -1))
-down = lambda X: X + VECTOR2I(wxPoint(0, 1))
-
-
-def rectangular_corner_arc(A, B, radius, corner):
-    """Same as corner_arc except lines are horizontal and vertical."""
-
-    endpt_fns = ((left, up), (down, left), (right, down), (up, right))
-    endpt = {crn: dir for crn, dir in zip(Corner, endpt_fns)}
-    corner_arc(A, endpt[corner][0](A), B, endpt[corner][1](B), radius)
+def rotate(V, theta):
+    """Rotate a vector by angle theta."""
+    sin, cos = (math.sin(math.radians(theta)), math.cos(math.radians(theta)))
+    return VECTOR2I(int(cos * V.x - sin * V.y), int(sin * V.x + cos * V.y))
 
 
 def draw_border():
     """Draw border."""
 
-    radius = 8 * 1e6 # 'mils' (1e6 of mm/in) is the unit used in KiCad
-    d = dim / 2
+    mil = lambda x: int(x * 1e6)
+    d  =  mil(dim / 2)
+    radius, radius2 = mil(8), mil(2)
+    mindist = mil(0.1)
+    nextpt = 2 * mindist
+    wrist = {'xoffset': mil(64), 'yoffset': mil(27), 'width': mil(88), 'height': mil(65)}
 
-    A = switches[1].GetPosition() + VECTOR2I(wxPointMM(0, -d - 3))
-    B = switches[45].GetPosition() + VECTOR2I(wxPointMM(-d - 14.25, 0))
-    rectangular_corner_arc(A, B, radius, Corner.TOP_LEFT)
+    # Create directed line segment from vector
+    left = lambda X: (X, X + VECTOR2I(-mindist, 0))
+    right = lambda X: (X, X + VECTOR2I(mindist, 0))
+    up = lambda X: (X, X + VECTOR2I(0, -mindist))
+    down = lambda X: (X, X + VECTOR2I(0, mindist))
+
+    A = switches[1].GetPosition() + VECTOR2I(0, -d - mil(3))
+    B = switches[45].GetPosition() + VECTOR2I(-d - mil(14.25), 0)
+    corner_arc(left(A), up(B), radius)
+
+    A = VECTOR2I(B)
+    B = VECTOR2I(B.x + radius + nextpt, switches[72].GetPosition().y + d + nextpt + mil(1))
+    corner_arc(down(A), left(B), radius)
+
+    A = VECTOR2I(B)
+    B += VECTOR2I(radius + nextpt, radius + nextpt)
+    corner_arc(right(A), up(B), radius)
+
+    A = VECTOR2I(B)
+    B += VECTOR2I(-radius - nextpt, wrist['yoffset'] - radius)
+    corner_arc(down(A), right(B), radius)
+
+    A = VECTOR2I(B)
+    B += VECTOR2I(-radius - nextpt, radius + nextpt)
+    corner_arc(left(A), up(B), radius)
+
+    A = VECTOR2I(B)
+    B += VECTOR2I(radius + nextpt, wrist['height'] - radius - nextpt)
+    corner_arc(down(A), left(B), radius)
+
+    A = VECTOR2I(B)
+    B += VECTOR2I(wrist['width'] - radius - nextpt, -radius - nextpt)
+    corner_arc(right(A), down(B), radius)
+
+    A = VECTOR2I(B)
+    B += VECTOR2I(-radius - nextpt, -wrist['height'] + radius + nextpt)
+    corner_arc(up(A), right(B), radius)
+
+    A = VECTOR2I(B)
+    B += VECTOR2I(-radius - nextpt, -radius - nextpt)
+    corner_arc(left(A), down(B), radius)
+
+    A = VECTOR2I(B)
+    ctr, angle = (switches[62].GetPosition(), switches[62].GetOrientationDegrees())
+    C, D = (VECTOR2I(0, d + mil(1)), VECTOR2I(-mindist, d + mil(1)))
+    C, D = (ctr + rotate(C, -angle), ctr + rotate(D, -angle))
+    corner_arc(up(A), (C, D), radius)
+
+    DC = C - D
+    A, B = (C, C + DC)
+    ctr, angle = (switches[63].GetPosition(), switches[63].GetOrientationDegrees())
+    C, D = (VECTOR2I(0, d + mil(1)), VECTOR2I(-mindist, d + mil(1)))
+    C, D = (ctr + rotate(C, -angle), ctr + rotate(D, -angle))
+    corner_arc((A, B), (C, D), radius)
+
+
+def remove_border():
+    board = pcbnew.GetBoard()
+    for t in board.GetDrawings():
+        if t.GetLayer() == pcbnew.User_2:
+            board.Delete(t)
 
 
 
@@ -372,6 +352,7 @@ place_ir_resistors()
 place_bjts()
 place_holes_wristpad()
 place_mounting_holes()
+remove_border()
 draw_border()
 
 pcbnew.Refresh()
