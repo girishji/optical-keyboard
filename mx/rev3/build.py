@@ -153,13 +153,6 @@ def place_bjts():
         r1.SetPosition(VECTOR2I(transform(wxPointMM(xoffset + .3, -4.1 + yoffset), swpos, 0)))
         r2.SetPosition(VECTOR2I(transform(wxPointMM(xoffset, 1.5 + yoffset), swpos, 0)))
 
-# def place_holes_wristpad():
-#     pos = [(-7.75, 120.025), (-7.75, 172.025), (67.25, 172.025), (67.25, 120.025),
-#            (208.25, 120.025), (208.25, 172.025), (283.25, 172.025), (283.25, 120.025)]
-#     for i in range(1, 9):
-#         fp = board.FindFootprintByReference('H' + str(i))
-#         fp.SetPosition(VECTOR2I(wxPointMM(*pos[i - 1])))
-
 def place_mounting_holes():
     delta = 0.6
     border = 0

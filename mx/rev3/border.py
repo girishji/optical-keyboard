@@ -42,6 +42,8 @@ def draw_arc(start, mid, end, layer=pcbnew.User_2):
     arc.SetLayer(layer)
     board.Add(arc)
 
+
+
 # Resources:
 # https://www.nagwa.com/en/explainers/606170705790/
 # https://www.nagwa.com/en/explainers/578165351487/
@@ -100,7 +102,7 @@ def rotate(V, theta):
 
 mil = lambda x: int(x * 1e6)
 d  =  mil(dim / 2)
-radius, radius2 = mil(8), mil(2)
+radius, radius2 = mil(10), mil(2)
 vlen = mil(0.1) # length of vector used for starting point
 wrist = {'xoffset': mil(64), 'yoffset': mil(27), 'width': mil(88), 'height': mil(65)}
 
@@ -111,49 +113,71 @@ up = lambda X, angle=0: (X, X + rotate(VECTOR2I(0, -vlen), angle))
 down = lambda X, angle=0: (X, X + rotate(VECTOR2I(0, vlen), angle))
 
 
+holes = [board.FindFootprintByReference('H' + str(i)) for i in range(9)]
+def place_hole(A, B, C, D):
+    """Place mounting hole."""
+    I = intersect(A, B, C, D)
+    if holes[place_hole.idx]:
+        AB, CD = (B - A, D - C)
+        offset = radius - mil(1.5)
+        holes[place_hole.idx].SetPosition(I - AB.Resize(offset) - CD.Resize(offset))
+        place_hole.idx += 1
+place_hole.idx = 1
+
+
 def draw_wrist(L):
     """Draw wrist and locate it to vector L."""
-
-    # R = L VECTOR2I(-int(wrist['width'] / 2) + radius + vlen, -int(wrist['height'] / 2))
     R = L
     S = VECTOR2I(R) + VECTOR2I(-radius - vlen, wrist['height'] - vlen - radius)
     draw_arc_fill_lines(left(R), up(S), radius)
+    place_hole(*left(R), *up(S))
     R = VECTOR2I(S)
     S += VECTOR2I(radius + vlen, radius + vlen)
     draw_arc_fill_lines(down(R), left(S), radius)
+    place_hole(*down(R), *left(S))
     R = VECTOR2I(S)
     S += VECTOR2I(wrist['width'] - radius - vlen, -radius - vlen)
     draw_arc_fill_lines(right(R), down(S), radius)
+    place_hole(*right(R), *down(S))
     R = VECTOR2I(S)
     S += VECTOR2I(-radius - vlen, -wrist['height'] + radius + vlen)
     draw_arc_fill_lines(up(R), right(S), radius)
+    place_hole(*up(R), *right(S))
 
-    # # Left wrist area
-    # L, angle = (M, -switches[62].GetOrientationDegrees())
-    # M = switches[65].GetPosition() + VECTOR2I(-wrist['xoffset'] - 2 * (radius + vlen),
-    #                                           int(wrist['yoffset'] / 2) + d)
-    # draw_arc_fill_lines(left(L, angle), up(M), radius)
-    # L = VECTOR2I(M)
-    # M += VECTOR2I(radius + vlen, int(wrist['yoffset'] / 2 + mil(1)))
-    # draw_arc_fill_lines(down(L), left(M), radius)
-    # L = VECTOR2I(M)
-    # M += VECTOR2I(radius + vlen, wrist['height'] - vlen - radius)
-    # draw_arc_fill_lines(right(L), up(M), radius)
-    # L = VECTOR2I(M)
-    # M += VECTOR2I(-radius - vlen, radius + vlen)
-    # draw_arc_fill_lines(down(L), right(M), radius)
-    # L = VECTOR2I(M)
-    # M += VECTOR2I(-wrist['width'] + radius + vlen, -radius - vlen)
-    # draw_arc_fill_lines(left(L), down(M), radius)
-    # L = VECTOR2I(M)
-    # M += VECTOR2I(radius + vlen, -wrist['height'] + radius + 2 * vlen)
-    # draw_arc_fill_lines(up(L), left(M), radius)
+    # Cutout
+    thickness = mil(11)
+    cradius = mil(6)
+    R = L + VECTOR2I(int(wrist['width'] / 2) - radius - vlen, thickness)
+    S = R + VECTOR2I(-int(wrist['width'] / 2) + thickness, int(wrist['height'] / 2) - thickness)
+    draw_arc_fill_lines(left(R), up(S), cradius)
+    R = VECTOR2I(S)
+    S += VECTOR2I(int(wrist['width'] / 2) - thickness, int(wrist['height'] / 2) - thickness)
+    draw_arc_fill_lines(down(R), left(S), cradius)
+    R = VECTOR2I(S)
+    S += VECTOR2I(int(wrist['width'] / 2) - thickness, -int(wrist['height'] / 2) + thickness)
+    draw_arc_fill_lines(right(R), down(S), cradius)
+    R = VECTOR2I(S)
+    S = L + VECTOR2I(int(wrist['width'] / 2) - radius - vlen, thickness)
+    draw_arc_fill_lines(up(R), right(S), cradius)
 
 
+# def place_holes_wristpad():
+#     pos = [(-7.75, 120.025), (-7.75, 172.025), (67.25, 172.025), (67.25, 120.025),
+#            (208.25, 120.025), (208.25, 172.025), (283.25, 172.025), (283.25, 120.025)]
+#     for i in range(1, 9):
+#         fp = board.FindFootprintByReference('H' + str(i))
+#         fp.SetPosition(VECTOR2I(wxPointMM(*pos[i - 1])))
 
 
 def draw_border():
     """Draw border."""
+
+    def draw_circle(ctr):
+        """Draw a circle at ctr."""
+        rad = mil(9)
+        draw_arc(ctr + VECTOR2I(-rad, 0), ctr + VECTOR2I(0, -rad), ctr + VECTOR2I(rad, 0))
+        draw_arc(ctr + VECTOR2I(rad, 0), ctr + VECTOR2I(0, rad), ctr + VECTOR2I(-rad, 0))
+
 
     # Left side
     L = R = switches[65].GetPosition() + VECTOR2I(0, d + mil(1))
@@ -179,12 +203,17 @@ def draw_border():
     M = switches[65].GetPosition() + VECTOR2I(-wrist['xoffset'] - 2 * (radius + vlen),
                                               int(wrist['yoffset'] / 2) + d)
     draw_arc_fill_lines(left(L, angle), up(M), radius)
+
+    center = M + VECTOR2I(-int(wrist['width'] / 2) + 2 * (radius + vlen), mil(0.5))
+    draw_circle(center)
+
     L = VECTOR2I(M)
     M += VECTOR2I(radius + vlen, int(wrist['yoffset'] / 2 + mil(1)))
     draw_arc_fill_lines(down(L), left(M), radius)
 
     M += VECTOR2I(-wrist['width'] + 2 * (radius + vlen), 0)
     draw_wrist(M)
+
     L = VECTOR2I(M)
     M += VECTOR2I(radius + vlen, -radius - vlen)
     draw_arc_fill_lines(right(L), down(M), radius)
@@ -221,6 +250,10 @@ def draw_border():
     S = switches[65].GetPosition() + VECTOR2I(wrist['xoffset'] + 2 * (radius + vlen),
                                               int(wrist['yoffset'] / 2) + d)
     draw_arc_fill_lines(right(R, angle), up(S), radius)
+
+    center = S + VECTOR2I(int(wrist['width'] / 2) - 2 * (radius + vlen), mil(0.5))
+    draw_circle(center)
+
     R = VECTOR2I(S)
     S += VECTOR2I(-radius - vlen, int(wrist['yoffset'] / 2 + mil(1)))
     draw_arc_fill_lines(down(R), right(S), radius)
