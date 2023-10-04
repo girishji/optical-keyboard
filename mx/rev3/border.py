@@ -102,7 +102,7 @@ def rotate(V, theta):
 
 mil = lambda x: int(x * 1e6)
 d  =  mil(dim / 2)
-radius, radius2 = mil(10), mil(2)
+radius, radius2 = mil(8), mil(2)
 vlen = mil(0.1) # length of vector used for starting point
 wrist = {'xoffset': mil(64), 'yoffset': mil(27), 'width': mil(88), 'height': mil(65)}
 
@@ -119,7 +119,7 @@ def place_hole(A, B, C, D):
     I = intersect(A, B, C, D)
     if holes[place_hole.idx]:
         AB, CD = (B - A, D - C)
-        offset = radius - mil(1.5)
+        offset = radius - mil(1)
         holes[place_hole.idx].SetPosition(I - AB.Resize(offset) - CD.Resize(offset))
         place_hole.idx += 1
 place_hole.idx = 1

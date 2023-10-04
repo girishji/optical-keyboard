@@ -48,31 +48,36 @@ def place_switches():
     place(switches[30], (offs - dim * 1 / 8, 2 * dim))
     for i in range(31, 44):
         place(switches[i], (offs + (i - 30) * dim, 2 * dim))
-    # place(switches[44], (offs + (14 + 1 / 8) * dim, 2 * dim))
     place(switches[44], (offs + 14 * dim, 2 * dim))
 
     # row 4
-    offs = dim * (-1 / 2)
+    # offs = dim * (-1 / 2)
+    # place(switches[45], (offs + dim, 3 * dim))
+    # offs += dim * (1 + 3 / 8)
+    # place(switches[46], (offs + dim, 3 * dim))
+    offs = dim * (-1 / 4 + 1 / 8)
     place(switches[45], (offs + dim, 3 * dim))
-    offs += dim * (1 + 3 / 8)
+    offs += dim * (1 + 1 / 4)
     place(switches[46], (offs + dim, 3 * dim))
-    offs += (3 / 8) * dim
+    offs += (1 / 8) * dim
     for i in range(47, 57):
         place(switches[i], (offs + (i - 45) * dim, 3 * dim))
     offs += dim * 12
-    place(switches[57], (offs + 3 / 8 * dim, 3 * dim))
-    # place(switches[57], (offs + 1 / 4 * dim, 3 * dim)) # 1.5u shift
-    offs += dim * (1 + 3 / 4)
-    # offs += dim * (1 + 3 / 4 - 1 / 4) # 1.5u shift
+    # place(switches[57], (offs + 3 / 8 * dim, 3 * dim))
+    place(switches[57], (offs + 1 / 8 * dim, 3 * dim)) # 1.25u shift
+    # offs += dim * (1 + 3 / 4)
+    offs += dim * (1 + 1 / 4) # 1.5u shift
     place(switches[58], (offs, 3 * dim))
 
     # row 5
-    row5shift = 0
-
-    offs = (1 - 1 / 4) * dim - row5shift
-    place(switches[59], (offs - dim / 8, 4 * dim))
-    for i in range(60, 62):
-        place(switches[i], (offs + (i - 59) * dim, 4 * dim))
+    offs = (1 - 1 / 2) * dim
+    place(switches[59], (offs, 4 * dim))
+    place(switches[60], (offs + dim * (1 + 1 / 8), 4 * dim))
+    place(switches[61], (offs + dim * (2 + 1 / 4), 4 * dim))
+    # offs = (1 - 1 / 4) * dim
+    # place(switches[59], (offs - dim / 8, 4 * dim))
+    # for i in range(60, 62):
+    #     place(switches[i], (offs + (i - 59) * dim, 4 * dim))
     offs = (3 + 1 / 2) * dim
     place(switches[62], (offs + dim / 4 + 1, 4 * dim + 1))
     orient(switches[62], -7)
@@ -162,8 +167,8 @@ def place_mounting_holes():
         holes[num].SetPosition(VECTOR2I(wxPointMM(x, y)))
 
     pos = [
-            (-dim * 0.5, -dim * 0.4 - border + delta),
-            (-dim * 0.5, dim * 2.5),
+            (0, -dim * 0.4 - border + delta),
+            (-dim * 0.5, dim * 2.25),
             (-dim * 0.5, dim * 4.2 + border - delta),
             (dim * 2.5, -dim * 0.5 - border + delta),
             (dim * 6.5, -dim * 0.5 - border + delta),
