@@ -51,15 +51,28 @@ def place_switches():
     place(switches[44], (offs + 14 * dim, 2 * dim))
 
     # row 4
-    # offs = dim * (-1 / 2)
-    # place(switches[45], (offs + dim, 3 * dim))
-    # offs += dim * (1 + 3 / 8)
-    # place(switches[46], (offs + dim, 3 * dim))
-    offs = dim * (-1 / 4 + 1 / 8)
+    # 1.75u
+    offs = dim * (-1 / 2)
     place(switches[45], (offs + dim, 3 * dim))
-    offs += dim * (1 + 1 / 4)
+    offs += dim * (1 + 3 / 8)
     place(switches[46], (offs + dim, 3 * dim))
-    offs += (1 / 8) * dim
+    offs += dim * (3 / 8)
+    # offs = dim * (-1 / 4 + 1 / 8)
+    # place(switches[45], (offs + dim, 3 * dim))
+
+    # 1.25u
+    # offs = dim * (-1 / 8)
+    # place(switches[45], (offs + dim, 3 * dim))
+    # offs += dim * (1 + 1 / 4)
+    # place(switches[46], (offs + dim, 3 * dim))
+    # offs += (1 / 8) * dim
+
+    # 1.5u
+    # offs = dim * (-1 / 2 + 1 / 8)
+    # place(switches[45], (offs + dim, 3 * dim))
+    # offs += dim * (1 + 1 / 4 + 1 / 8)
+    # place(switches[46], (offs + dim, 3 * dim))
+    # offs += (1 / 4) * dim
     for i in range(47, 57):
         place(switches[i], (offs + (i - 45) * dim, 3 * dim))
     offs += dim * 12
@@ -78,18 +91,30 @@ def place_switches():
     # place(switches[59], (offs - dim / 8, 4 * dim))
     # for i in range(60, 62):
     #     place(switches[i], (offs + (i - 59) * dim, 4 * dim))
-    offs = (3 + 1 / 2) * dim
-    place(switches[62], (offs + dim / 4 + 1, 4 * dim + 1))
-    orient(switches[62], -7)
+    offs = (3 + 1 / 2 + 1 / 8) * dim
+    place(switches[62], (offs + dim / 4 + 0.7, 4 * dim + 1))
+    # offs = (3 + 1 / 2) * dim
+    # place(switches[62], (offs + dim / 4 + 0.7, 4 * dim + 1))
+    # orient(switches[62], -7)
+    orient(switches[62], -5)
 
+    # offs += dim * (1 + 1 / 4 + 1 / 8)
+    # in line with 62
+    # place(switches[63], (offs + 1.4, 4 * dim + 5.2))
+    # orient(switches[63], -16)
+    # projected out
+    # place(switches[63], (offs + 0.4, 4 * dim + 10))
+    # orient(switches[63], -20)
+    # offs += dim * (1 + 1 / 8)
+    # rotated
     offs += dim * (1 + 1 / 4 + 1 / 8)
-    place(switches[63], (offs + 1.4, 4 * dim + 5.2))
-    orient(switches[63], -16)
-    offs += dim * (1 + 1 / 8)
+    place(switches[63], (offs + 1.35, 4 * dim + 7.8))
+    orient(switches[63], -20 + 90)
+    offs += dim
 
     place(switches[64], (offs - 0.6, 4.5 * dim + 7))
     # orient(switches[64], -28 + 90)
-    orient(switches[64], -21 + 90)
+    orient(switches[64], -20 + 90)
 
     offs += dim * 1.25
     place(switches[65], (offs, 4 * dim))
@@ -98,10 +123,13 @@ def place_switches():
     # orient(switches[66], 28 + 90 + 180)
     orient(switches[66], 20 + 90 + 180)
     offs += dim * 1.25
-    place(switches[67], (offs + dim - 1.4, 4 * dim + 5.2))
-    orient(switches[67], 16)
-    place(switches[68], (offs + 2 * dim - 1, 4 * dim + 1))
-    orient(switches[68], 7)
+    # place(switches[67], (offs + dim - 1.4, 4 * dim + 5.2))
+    place(switches[67], (offs + dim - 0.6, 4 * dim + 10))
+    # orient(switches[67], 16)
+    orient(switches[67], 20)
+    place(switches[68], (offs + 2 * dim - 0.7, 4 * dim + 1))
+    # orient(switches[68], 7)
+    orient(switches[68], 5)
     # offs += (2 + 1 / 4) * dim
     offs += 2 * dim
     place(switches[69], (offs + dim, 4 * dim))
@@ -170,7 +198,7 @@ def place_mounting_holes():
     pos = [
             (0, -dim * 0.4 - border + delta),
             (-dim * 0.5, dim * 2),
-            (-dim * 0.5, dim * 4.2 + border - delta),
+            (-dim * 0.4, dim * 4.2 + border - delta),
             (dim * 2.5, -dim * 0.5 - border + delta),
             (dim * 6.5, -dim * 0.5 - border + delta),
             (dim * 10.5, -dim * 0.5 - border + delta),
@@ -180,12 +208,15 @@ def place_mounting_holes():
             (dim * 9, dim * 1.5 - delta),
             (dim * 12, dim * 1.5 - delta),
             (dim * 7.25, dim * 2.5 - delta),
-            (dim * 3.3, dim * 3.55 + delta),
+            (dim * (3.5 - 1 / 8) - 0.5, dim * 3.55 + delta),
+            # (dim * 3.3 - 0.25, dim * 3.55 + delta),
             (dim * 11.75, dim * 3.436 + delta),
             (dim * 15.35, dim * 1.5 - border),
             (dim * 15.25, dim * 4.25 + border - 3 * delta),
-            (dim * 5.45, dim * 4.6 + border),
-            (dim * 8.9, dim * 4.4 + border),
+            # (dim * 5.45, dim * 4.6 + border),
+            # (dim * 8.85, dim * 4.25),
+            (dim * 5.75, dim * 5.5),
+            (dim * 8.75, dim * 5.5),
             ]
 
     holes = [board.FindFootprintByReference("Hs" + str(num + 1)) for num in range(0, len(pos))]

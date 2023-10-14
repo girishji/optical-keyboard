@@ -103,10 +103,14 @@ def rotate(V, theta):
 
 mil = lambda x: int(x * 1e6)
 d  =  mil(dim / 2)
-radius, radius2 = mil(8), mil(2)
+# radius, radius2 = mil(10), mil(2)
+# radius, radius2, radius3 = mil(10), mil(2), mil(1)
+radius, radius2 = mil(10), mil(1)
+# radius, radius2 = mil(8), mil(2)
 len_dls = mil(0.1) # Length of directed line segment before arc start
 vlen = 2 * len_dls # Length from where directed line segment is specified
-wrist = {'xoffset': mil(64), 'yoffset': mil(27), 'width': mil(88), 'height': mil(65)}
+wrist = {'xoffset': mil(64), 'yoffset': mil(28), 'width': mil(88), 'height': mil(65)}
+# wrist = {'xoffset': mil(64), 'yoffset': mil(27), 'width': mil(88), 'height': mil(65)}
 
 # Create directed line segment from vector X
 left = lambda X, angle=0: (X, X + rotate(VECTOR2I(-len_dls, 0), angle))
@@ -131,7 +135,7 @@ def place_hole(A, B, C, D):
     I = intersect(A, B, C, D)
     if holes[place_hole.idx]:
         AB, CD = (B - A, D - C)
-        offset = radius - mil(1)
+        offset = radius - mil(4.0)
         holes[place_hole.idx].SetPosition(I - AB.Resize(offset) - CD.Resize(offset))
         place_hole.idx += 1
 place_hole.idx = 1
@@ -155,6 +159,8 @@ def draw_wrist(L):
     S += VECTOR2I(-radius - vlen, -wrist['height'] + radius + vlen)
     draw_arc_fill_lines(up(R), right(S), radius)
     place_hole(*up(R), *right(S))
+    if type == Type.WRIST_PLATE:
+        draw_line(S, L)
 
     # Cutout
     thickness = mil(11)
@@ -184,7 +190,7 @@ def draw_border():
     """Draw border."""
 
     if type == Type.WRIST_PLATE:
-        draw_wrist(VECTOR2I(mil(10), mil(10)))
+        draw_wrist(VECTOR2I(mil(10), mil(20)))
         return
 
     def draw_circle(ctr):
@@ -193,25 +199,36 @@ def draw_border():
         draw_arc(ctr + VECTOR2I(-rad, 0), ctr + VECTOR2I(0, -rad), ctr + VECTOR2I(rad, 0))
         draw_arc(ctr + VECTOR2I(rad, 0), ctr + VECTOR2I(0, rad), ctr + VECTOR2I(-rad, 0))
 
+    border = mil(0.1)
     # Left side
-    L = R = switches[65].GetPosition() + VECTOR2I(0, d + mil(1))
+    L = R = switches[65].GetPosition() + VECTOR2I(0, d + border)
     angle = -switches[64].GetOrientationDegrees()
-    M = switches[64].GetPosition() + rotate(VECTOR2I(0, d + mil(1)), angle)
+    M = switches[64].GetPosition() + rotate(VECTOR2I(0, d + border), angle)
     draw_arc_fill_lines(left(L), right(M, angle), radius2)
     L = M
-    M = switches[64].GetPosition() + rotate(VECTOR2I(-int(d * 1.25) - mil(1), 0), angle)
+    M = switches[64].GetPosition() + rotate(VECTOR2I(-int(d * 2) - border, 0), angle)
     draw_arc_fill_lines(left(L, angle), down(M, angle), radius2)
     L = VECTOR2I(M)
-    M += rotate(VECTOR2I(radius2 + vlen, -d - mil(1)), angle)
+    M += rotate(VECTOR2I(radius2 + vlen, -d - border), angle)
     draw_arc_fill_lines(up(L, angle), left(M, angle), radius2)
     L = M
     angle2 = -switches[63].GetOrientationDegrees()
-    M = switches[63].GetPosition() + rotate(VECTOR2I(0, d + mil(1)), angle2)
-    draw_arc_fill_lines(right(L, angle), right(M, angle2), radius2)
+    # M = switches[63].GetPosition() + rotate(VECTOR2I(0, d + border), angle2)
+    # draw_arc_fill_lines(right(L, angle), right(M, angle2), radius2)
+    M = switches[63].GetPosition() + rotate(VECTOR2I(-int(d * 1.25) - border, 0), angle2)
+    draw_arc_fill_lines(right(L, angle), down(M, angle2), radius2)
+    ##
+    L = VECTOR2I(M)
+    M = switches[63].GetPosition() + rotate(VECTOR2I(-int(d * 1.25) - border + radius2 + vlen, -d - border), angle2)
+    draw_arc_fill_lines(up(L, angle2), left(M, angle2), radius2)
+    # M = switches[63].GetPosition() + rotate(VECTOR2I(-int(d * 1.25), d + border - radius2 - vlen), angle2)
+    # draw_arc_fill_lines(left(L, angle2), down(M, angle2), radius2)
+    ##
     L, angle = (M, angle2)
     angle2 = -switches[62].GetOrientationDegrees()
-    M = switches[62].GetPosition() + rotate(VECTOR2I(0, d + mil(1)), angle2)
-    draw_arc_fill_lines(left(L, angle), right(M, angle2), radius2)
+    M = switches[62].GetPosition() + rotate(VECTOR2I(0, d + border), angle2)
+    draw_arc_fill_lines(right(L, angle), right(M, angle2), radius2)
+    # draw_arc_fill_lines(up(L, angle), right(M, angle2), radius2)
 
     L, angle = (M, -switches[62].GetOrientationDegrees())
 
@@ -221,10 +238,10 @@ def draw_border():
         draw_arc_fill_lines(left(L, angle), up(M), radius)
 
         center = M + VECTOR2I(-int(wrist['width'] / 2) + 2 * (radius + vlen), mil(0.5))
-        draw_circle(center)
+        # draw_circle(center)
 
         L = VECTOR2I(M)
-        M += VECTOR2I(radius + vlen, int(wrist['yoffset'] / 2 + mil(1)))
+        M += VECTOR2I(radius + vlen, int(wrist['yoffset'] / 2))
         draw_arc_fill_lines(down(L), left(M), radius)
 
         M += VECTOR2I(-wrist['width'] + 2 * (radius + vlen), 0)
@@ -238,7 +255,7 @@ def draw_border():
         draw_arc_fill_lines(up(L), right(M), radius)
 
     else:
-        M = switches[65].GetPosition() + VECTOR2I(-wrist['xoffset'] - wrist['width'] + radius + vlen, d + mil(1))
+        M = switches[65].GetPosition() + VECTOR2I(-wrist['xoffset'] - wrist['width'] + radius + vlen, d + border)
         draw_arc_fill_lines(left(L, angle), right(M), radius)
 
     L = VECTOR2I(M)
@@ -250,22 +267,29 @@ def draw_border():
 
     # Right side
     angle = -switches[66].GetOrientationDegrees()
-    S = switches[66].GetPosition() + rotate(VECTOR2I(0, d + mil(1)), angle)
+    S = switches[66].GetPosition() + rotate(VECTOR2I(0, d + border), angle)
     draw_arc_fill_lines(right(R), left(S, angle), radius2)
     R = S
-    S = switches[66].GetPosition() + rotate(VECTOR2I(int(d * 1.25) + mil(1), 0), angle)
+    S = switches[66].GetPosition() + rotate(VECTOR2I(int(d * 2) + border, 0), angle)
     draw_arc_fill_lines(right(R, angle), down(S, angle), radius2)
     R = VECTOR2I(S)
-    S += rotate(VECTOR2I(-radius2 - 2 * vlen, -d - mil(1)), angle)
+    S += rotate(VECTOR2I(-radius2 - 2 * vlen, -d - border), angle)
     draw_arc_fill_lines(up(R, angle), right(S, angle), radius2)
     R = S
     angle2 = -switches[67].GetOrientationDegrees()
-    S = switches[67].GetPosition() + rotate(VECTOR2I(0, d + mil(1)), angle2)
+    S = switches[67].GetPosition() + rotate(VECTOR2I(0, d + border), angle2)
     draw_arc_fill_lines(left(R, angle), left(S, angle2), radius2)
+    ##
+    R = VECTOR2I(S)
+    S = switches[67].GetPosition() + rotate(VECTOR2I(d, d + border - radius2 - vlen), angle2)
+    draw_arc_fill_lines(right(R, angle2), down(S, angle2), radius2)
+    ##
+
     R, angle = (S, angle2)
     angle2 = -switches[68].GetOrientationDegrees()
-    S = switches[68].GetPosition() + rotate(VECTOR2I(0, d + mil(1)), angle2)
-    draw_arc_fill_lines(right(R, angle), left(S, angle2), radius2)
+    S = switches[68].GetPosition() + rotate(VECTOR2I(0, d + border), angle2)
+    # draw_arc_fill_lines(right(R, angle), left(S, angle2), radius2)
+    draw_arc_fill_lines(up(R, angle), left(S, angle2), radius2)
 
     R, angle = (S, angle2)
 
@@ -275,10 +299,10 @@ def draw_border():
         draw_arc_fill_lines(right(R, angle), up(S), radius)
 
         center = S + VECTOR2I(int(wrist['width'] / 2) - 2 * (radius + vlen), mil(0.5))
-        draw_circle(center)
+        # draw_circle(center)
 
         R = VECTOR2I(S)
-        S += VECTOR2I(-radius - vlen, int(wrist['yoffset'] / 2 + mil(1)))
+        S += VECTOR2I(-radius - vlen, int(wrist['yoffset'] / 2))
         draw_arc_fill_lines(down(R), right(S), radius)
         draw_wrist(S)
 
@@ -291,7 +315,7 @@ def draw_border():
         draw_arc_fill_lines(up(R), left(S), radius)
 
     else:
-        S = switches[65].GetPosition() + VECTOR2I(wrist['xoffset'] + wrist['width'] - (radius + vlen), d + mil(1))
+        S = switches[65].GetPosition() + VECTOR2I(wrist['xoffset'] + wrist['width'] - (radius + vlen), d + border)
         draw_arc_fill_lines(right(R, angle), left(S), radius)
 
     R = S
@@ -307,6 +331,7 @@ def remove_border():
     board = pcbnew.GetBoard()
     for t in board.GetDrawings():
         if t.GetLayer() == pcbnew.User_2 or t.GetLayer() == pcbnew.Edge_Cuts:
+        # if t.GetLayer() == pcbnew.User_2:
             board.Delete(t)
 
 
