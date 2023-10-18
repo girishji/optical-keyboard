@@ -1,0 +1,2983 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid eab2e1cd-7fe2-4c2e-876c-14fc6731298a)
+
+  (paper "A4")
+
+  (lib_symbols
+    (symbol "Mechanical:MountingHole" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+      (property "Reference" "H" (at 0 5.08 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Value" "MountingHole" (at 0 3.175 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "~" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_keywords" "mounting hole" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_description" "Mounting Hole without connection" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_fp_filters" "MountingHole*" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "MountingHole_0_1"
+        (circle (center 0 0) (radius 1.27)
+          (stroke (width 1.27) (type default))
+          (fill (type none))
+        )
+      )
+    )
+    (symbol "giri:JLC_Order_Num" (in_bom yes) (on_board yes)
+      (property "Reference" "JLC" (at 0 0 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Value" "JLC_Order_Num" (at 0 0 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "JLC_Order_Num_0_1"
+        (circle (center 0 0) (radius 2.54)
+          (stroke (width 0.1524) (type default))
+          (fill (type none))
+        )
+      )
+    )
+    (symbol "giri:MountingHoleSMD" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+      (property "Reference" "Hs" (at 0 5.08 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Value" "MountingHoleSMD" (at 0 3.175 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "~" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_keywords" "mounting hole" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_description" "Mounting Hole without connection" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_fp_filters" "MountingHole*" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "MountingHoleSMD_0_1"
+        (circle (center 0 0) (radius 1.27)
+          (stroke (width 1.27) (type default))
+          (fill (type none))
+        )
+      )
+    )
+    (symbol "giri:SwCtLP" (in_bom yes) (on_board yes)
+      (property "Reference" "S" (at 0 2.54 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Value" "SwCtLP" (at 0 -2.54 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "Giri_Library:Switch_Cutout_LoPro" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "SwCtLP_0_1"
+        (rectangle (start -1.27 1.27) (end 1.27 -1.27)
+          (stroke (width 0.1524) (type default))
+          (fill (type none))
+        )
+      )
+    )
+  )
+
+
+  (symbol (lib_id "giri:SwCtLP") (at 217.805 69.85 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 04589a4b-547b-4aea-97f5-912c345627bb)
+    (property "Reference" "S43" (at 217.805 67.31 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 217.805 72.39 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 217.805 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 217.805 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S43") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S43") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Mechanical:MountingHole") (at 142.875 109.22 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 045cc737-d930-448d-9913-91c50a6520c9)
+    (property "Reference" "H1" (at 145.415 107.95 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "MountingHole" (at 145.415 110.49 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 142.875 109.22 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 142.875 109.22 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "H1") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "H1") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Mechanical:MountingHole") (at 177.165 116.84 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 052fdfac-5309-4903-975f-b26b6170b7a4)
+    (property "Reference" "H8" (at 179.705 115.57 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "MountingHole" (at 179.705 118.11 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 177.165 116.84 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 177.165 116.84 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "H8") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "H8") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 229.235 43.18 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 054c01cc-bd63-4854-9826-fb5bddb42f37)
+    (property "Reference" "S15" (at 229.235 40.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 229.235 45.72 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 229.235 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 229.235 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S15") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S15") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Mechanical:MountingHole") (at 165.735 109.22 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 0570a72b-9e59-4b5e-b67c-5495367fceb5)
+    (property "Reference" "H3" (at 168.275 107.95 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "MountingHole" (at 168.275 110.49 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 165.735 109.22 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 165.735 109.22 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "H3") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "H3") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 103.505 95.25 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 0aa82377-c072-4c02-b089-a33f869e851d)
+    (property "Reference" "S62" (at 103.505 92.71 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 103.505 97.79 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 103.505 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 103.505 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S62") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S62") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 92.075 95.25 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 0e5dea3f-c3f9-4e20-a522-73255477fa7b)
+    (property "Reference" "S61" (at 92.075 92.71 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 92.075 97.79 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 92.075 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 92.075 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S61") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S61") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 103.505 43.18 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 1232fc20-3a2a-4dc1-92ed-10301fcf2995)
+    (property "Reference" "S4" (at 103.505 40.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 103.505 45.72 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 103.505 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 103.505 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S4") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S4") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:MountingHoleSMD") (at 69.215 139.7 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 1502d991-55da-47b0-9dab-97cef335d51b)
+    (property "Reference" "Hs16" (at 71.755 138.8653 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "~" (at 71.755 141.4022 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 69.215 139.7 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 69.215 139.7 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "Hs16") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "Hs16") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 183.515 69.85 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 17239398-6482-4fc7-90a1-6d89918a37f7)
+    (property "Reference" "S40" (at 183.515 67.31 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 183.515 72.39 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 183.515 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 183.515 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S40") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S40") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 229.235 69.85 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 196d8ba7-3ee7-4688-a0df-2476d3b5f354)
+    (property "Reference" "S44" (at 229.235 67.31 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 229.235 72.39 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 229.235 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 229.235 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S44") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S44") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 194.945 69.85 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 1c72edb9-113d-456e-8629-42a53f4b8d97)
+    (property "Reference" "S41" (at 194.945 67.31 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 194.945 72.39 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 194.945 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 194.945 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S41") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S41") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 126.365 57.15 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 1e12ee6d-b690-438d-83ca-5794a9203f3b)
+    (property "Reference" "S21" (at 126.365 54.61 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 126.365 59.69 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 126.365 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 126.365 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S21") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S21") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 206.375 69.85 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 1eb1ebfe-e2e8-4ac8-a214-10d2e49b8154)
+    (property "Reference" "S42" (at 206.375 67.31 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 206.375 72.39 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 206.375 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 206.375 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S42") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S42") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 80.645 95.25 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 1f54ca8a-3199-46a8-bf65-cb3d7916e8a4)
+    (property "Reference" "S60" (at 80.645 92.71 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 80.645 97.79 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 80.645 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 80.645 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S60") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S60") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 217.805 57.15 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 1fccb65d-327f-4d61-b246-413640043612)
+    (property "Reference" "S29" (at 217.805 54.61 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 217.805 59.69 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 217.805 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 217.805 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S29") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S29") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:MountingHoleSMD") (at 69.215 120.65 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 213e6917-faef-4f5b-a454-cfc535866023)
+    (property "Reference" "Hs6" (at 71.755 119.8153 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "~" (at 71.755 122.3522 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 69.215 120.65 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 69.215 120.65 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "Hs6") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "Hs6") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 137.795 57.15 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 2202ceec-f737-4f78-a331-631c5abac4c0)
+    (property "Reference" "S22" (at 137.795 54.61 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 137.795 59.69 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 137.795 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 137.795 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S22") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S22") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 103.505 69.85 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 28366d40-ef29-4b1f-bac0-3dcbdf617e97)
+    (property "Reference" "S33" (at 103.505 67.31 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 103.505 72.39 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 103.505 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 103.505 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S33") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S33") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:MountingHoleSMD") (at 80.645 139.7 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 2f43449b-46c1-4033-b57c-a764f4504b06)
+    (property "Reference" "Hs17" (at 83.185 138.8653 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "~" (at 83.185 141.4022 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 80.645 139.7 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 80.645 139.7 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "Hs17") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "Hs17") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 80.645 82.55 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 30363faf-799e-4197-8e2f-85065059aecc)
+    (property "Reference" "S46" (at 80.645 80.01 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 80.645 85.09 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 80.645 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 80.645 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S46") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S46") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 69.215 43.18 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 3cbdeca1-e808-4729-a954-d411832c628d)
+    (property "Reference" "S1" (at 69.215 40.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 69.215 45.72 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 69.215 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 69.215 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S1") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S1") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 80.645 69.85 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 42942480-429c-4071-bc15-f161707d329a)
+    (property "Reference" "S31" (at 80.645 67.31 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 80.645 72.39 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 80.645 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 80.645 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S31") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S31") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:MountingHoleSMD") (at 69.215 111.76 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 4449f2d8-c0ee-4c74-922c-8b54d10d9df8)
+    (property "Reference" "Hs1" (at 71.755 110.9253 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "~" (at 71.755 113.4622 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 69.215 111.76 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 69.215 111.76 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "Hs1") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "Hs1") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 126.365 82.55 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 4607110c-522c-4da8-af7a-20812334041e)
+    (property "Reference" "S50" (at 126.365 80.01 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 126.365 85.09 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 126.365 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 126.365 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S50") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S50") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 114.935 95.25 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 52447925-771d-4b91-899c-f442a53377b0)
+    (property "Reference" "S63" (at 114.935 92.71 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 114.935 97.79 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 114.935 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 114.935 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S63") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S63") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:MountingHoleSMD") (at 103.505 120.65 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 533f31d8-d26c-4ede-8fde-c4a0c2a49795)
+    (property "Reference" "Hs9" (at 106.045 119.8153 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "~" (at 106.045 122.3522 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 103.505 120.65 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 103.505 120.65 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "Hs9") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "Hs9") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Mechanical:MountingHole") (at 165.735 116.84 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 54f209db-cba4-4e0a-86a2-f241d137fd4c)
+    (property "Reference" "H7" (at 168.275 115.57 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "MountingHole" (at 168.275 118.11 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 165.735 116.84 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 165.735 116.84 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "H7") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "H7") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:MountingHoleSMD") (at 114.935 120.65 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 58320d46-9eeb-435d-8aa7-d559a2a3a74b)
+    (property "Reference" "Hs10" (at 117.475 119.8153 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "~" (at 117.475 122.3522 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 114.935 120.65 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 114.935 120.65 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "Hs10") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "Hs10") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 160.655 69.85 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 593761df-9ed0-47e9-86bc-09ca8c682a1c)
+    (property "Reference" "S38" (at 160.655 67.31 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 160.655 72.39 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 160.655 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 160.655 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S38") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S38") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 92.075 43.18 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 5e9aedc5-716c-4cda-8269-01ba9a049f78)
+    (property "Reference" "S3" (at 92.075 40.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 92.075 45.72 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 92.075 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 92.075 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S3") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S3") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:MountingHoleSMD") (at 92.075 120.65 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 6195f64a-d056-45c4-a046-cd360a566853)
+    (property "Reference" "Hs8" (at 94.615 119.8153 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "~" (at 94.615 122.3522 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 92.075 120.65 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 92.075 120.65 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "Hs8") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "Hs8") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 137.795 95.25 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 638a63e6-d9c7-4c88-915c-e87ce53030b6)
+    (property "Reference" "S65" (at 137.795 92.71 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 137.795 97.79 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 137.795 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 137.795 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S65") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S65") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 183.515 43.18 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 6684c713-6125-4e81-8189-79a254cb19ed)
+    (property "Reference" "S11" (at 183.515 40.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 183.515 45.72 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 183.515 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 183.515 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S11") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S11") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 126.365 95.25 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 679d7565-c6ef-4451-b660-85a80490f131)
+    (property "Reference" "S64" (at 126.365 92.71 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 126.365 97.79 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 126.365 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 126.365 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S64") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S64") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 172.085 82.55 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 68cfb9bd-2d9d-4eef-8316-1a1b02f59dbf)
+    (property "Reference" "S54" (at 172.085 80.01 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 172.085 85.09 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 172.085 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 172.085 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S54") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S54") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 80.645 57.15 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 6c30b2c2-9282-4dad-a550-2d33e366d9fd)
+    (property "Reference" "S17" (at 80.645 54.61 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 80.645 59.69 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 80.645 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 80.645 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S17") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S17") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 137.795 82.55 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 70e1c4ea-2bb6-458b-b0c7-243450051a59)
+    (property "Reference" "S51" (at 137.795 80.01 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 137.795 85.09 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 137.795 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 137.795 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S51") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S51") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:JLC_Order_Num") (at 203.835 107.95 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 70ef3552-c057-497d-b452-e894f0b009f1)
+    (property "Reference" "JLC1" (at 207.645 106.68 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "JLC_Order_Num" (at 207.645 109.22 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+    (property "Footprint" "giri:JLC_Order_Num" (at 203.835 107.95 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 203.835 107.95 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "JLC1") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "JLC1") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:MountingHoleSMD") (at 114.935 111.76 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 770d2d21-10d8-49a4-b7d4-3347c46284bd)
+    (property "Reference" "Hs5" (at 117.475 110.9253 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "~" (at 117.475 113.4622 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 114.935 111.76 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 114.935 111.76 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "Hs5") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "Hs5") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 103.505 57.15 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 79031873-6677-41e6-aa86-bd92b8593df0)
+    (property "Reference" "S19" (at 103.505 54.61 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 103.505 59.69 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 103.505 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 103.505 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S19") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S19") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 69.215 69.85 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 79edaa4a-0e5a-4469-9c44-556d68bbdeba)
+    (property "Reference" "S30" (at 69.215 67.31 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 69.215 72.39 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 69.215 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 69.215 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S30") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S30") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 194.945 57.15 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 7a545c57-aa70-4964-bc1a-cd7d8bd4da51)
+    (property "Reference" "S27" (at 194.945 54.61 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 194.945 59.69 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 194.945 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 194.945 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S27") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S27") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 114.935 82.55 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 7a75d8ae-12d5-4f02-9ea5-343bd8502cd4)
+    (property "Reference" "S49" (at 114.935 80.01 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 114.935 85.09 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 114.935 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 114.935 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S49") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S49") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 92.075 57.15 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 7a985ddc-cb2a-4017-9941-10fc31972f27)
+    (property "Reference" "S18" (at 92.075 54.61 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 92.075 59.69 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 92.075 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 92.075 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S18") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S18") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 69.215 57.15 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 7a9dd554-3875-46c5-bf01-2ccd73d8b23c)
+    (property "Reference" "S16" (at 69.215 54.61 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 69.215 59.69 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 69.215 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 69.215 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S16") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S16") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 114.935 69.85 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 7b58d059-1e50-442a-9dfc-5c5a4770c515)
+    (property "Reference" "S34" (at 114.935 67.31 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 114.935 72.39 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 114.935 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 114.935 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S34") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S34") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 194.945 95.25 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 7f3b4b62-b1ff-43fe-99cc-f42279299fec)
+    (property "Reference" "S70" (at 194.945 92.71 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 194.945 97.79 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 194.945 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 194.945 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S70") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S70") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 206.375 95.25 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 80e3eca1-b2e1-4fad-8af0-2884ed0d574b)
+    (property "Reference" "S71" (at 206.375 92.71 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 206.375 97.79 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 206.375 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 206.375 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S71") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S71") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 92.075 82.55 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 8373c83a-5f24-4357-b993-244659018cfc)
+    (property "Reference" "S47" (at 92.075 80.01 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 92.075 85.09 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 92.075 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 92.075 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S47") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S47") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 217.805 82.55 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 839b464d-bee6-4c9f-9cfe-25c63580e627)
+    (property "Reference" "S58" (at 217.805 80.01 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 217.805 85.09 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 217.805 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 217.805 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S58") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S58") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:MountingHoleSMD") (at 103.505 111.76 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 856332af-3368-43f5-979b-255abd51f7d7)
+    (property "Reference" "Hs4" (at 106.045 110.9253 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "~" (at 106.045 113.4622 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 103.505 111.76 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 103.505 111.76 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "Hs4") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "Hs4") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 206.375 57.15 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 862d3dc6-324a-4e8e-ba25-7452364427db)
+    (property "Reference" "S28" (at 206.375 54.61 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 206.375 59.69 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 206.375 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 206.375 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S28") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S28") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 114.935 57.15 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 8e183617-dc75-4168-9b63-6e9e1d43b425)
+    (property "Reference" "S20" (at 114.935 54.61 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 114.935 59.69 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 114.935 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 114.935 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S20") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S20") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 137.795 69.85 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 943c6122-d184-448d-b07f-6ba25af257a3)
+    (property "Reference" "S36" (at 137.795 67.31 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 137.795 72.39 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 137.795 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 137.795 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S36") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S36") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 126.365 43.18 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 9523ffec-5036-426b-84c7-0569fd360b23)
+    (property "Reference" "S6" (at 126.365 40.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 126.365 45.72 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 126.365 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 126.365 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S6") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S6") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 92.075 69.85 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 9a991637-1c5f-4e6c-885b-0021374bd662)
+    (property "Reference" "S32" (at 92.075 67.31 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 92.075 72.39 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 92.075 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 92.075 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S32") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S32") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 149.225 82.55 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 9dd2bbc4-4cdb-43fc-a195-3f536f279ea9)
+    (property "Reference" "S52" (at 149.225 80.01 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 149.225 85.09 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 149.225 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 149.225 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S52") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S52") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 160.655 95.25 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 9ded8636-eea3-4982-b3d9-1219c0ae340a)
+    (property "Reference" "S67" (at 160.655 92.71 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 160.655 97.79 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 160.655 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 160.655 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S67") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S67") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Mechanical:MountingHole") (at 142.875 116.84 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 9f5722be-8580-4e0d-a85f-34cd52960ed3)
+    (property "Reference" "H5" (at 145.415 115.57 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "MountingHole" (at 145.415 118.11 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 142.875 116.84 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 142.875 116.84 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "H5") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "H5") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 80.645 43.18 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 9ff7dc32-339c-410a-b227-55015f31f67a)
+    (property "Reference" "S2" (at 80.645 40.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 80.645 45.72 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 80.645 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 80.645 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S2") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S2") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 183.515 57.15 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid a270ee23-5826-4d8c-a604-3b02ad7372ad)
+    (property "Reference" "S26" (at 183.515 54.61 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 183.515 59.69 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 183.515 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 183.515 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S26") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S26") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 69.215 82.55 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid b3e4e1eb-739a-4629-83a6-f7bb39034efe)
+    (property "Reference" "S45" (at 69.215 80.01 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 69.215 85.09 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 69.215 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 69.215 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S45") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S45") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:MountingHoleSMD") (at 80.645 129.54 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid b5024fab-2baf-4b1f-84cd-dcfafe6ad683)
+    (property "Reference" "Hs12" (at 83.185 128.7053 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "~" (at 83.185 131.2422 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 80.645 129.54 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 80.645 129.54 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "Hs12") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "Hs12") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 114.935 43.18 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid b6b681c8-7c44-42d4-a65a-04503d9a6a21)
+    (property "Reference" "S5" (at 114.935 40.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 114.935 45.72 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 114.935 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 114.935 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S5") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S5") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 160.655 43.18 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid b73d81ec-83a0-4d0b-a249-15cdc9cd6c77)
+    (property "Reference" "S9" (at 160.655 40.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 160.655 45.72 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 160.655 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 160.655 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S9") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S9") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 172.085 95.25 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid b742dc2b-57f4-4a63-8f72-15033aff7f56)
+    (property "Reference" "S68" (at 172.085 92.71 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 172.085 97.79 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 172.085 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 172.085 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S68") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S68") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:MountingHoleSMD") (at 69.215 129.54 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid b9555302-b8c9-4435-afa5-ffd4b0f15698)
+    (property "Reference" "Hs11" (at 71.755 128.7053 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "~" (at 71.755 131.2422 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 69.215 129.54 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 69.215 129.54 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "Hs11") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "Hs11") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 183.515 82.55 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid bd64e920-6923-4c4c-97c6-c9e8895cd759)
+    (property "Reference" "S55" (at 183.515 80.01 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 183.515 85.09 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 183.515 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 183.515 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S55") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S55") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 137.795 43.18 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid c155b19c-7934-45fc-86da-c6d31dabecc7)
+    (property "Reference" "S7" (at 137.795 40.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 137.795 45.72 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 137.795 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 137.795 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S7") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S7") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Mechanical:MountingHole") (at 154.305 109.22 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid c3ead7dc-8a97-4de2-8053-d149f2da149c)
+    (property "Reference" "H2" (at 156.845 107.95 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "MountingHole" (at 156.845 110.49 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 154.305 109.22 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 154.305 109.22 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "H2") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "H2") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 172.085 43.18 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid ca430a06-4ccc-4fd4-b199-3caafaf26af0)
+    (property "Reference" "S10" (at 172.085 40.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 172.085 45.72 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 172.085 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 172.085 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S10") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S10") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 172.085 69.85 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid cc2d16f4-fe3e-4305-9c97-80a033b6193a)
+    (property "Reference" "S39" (at 172.085 67.31 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 172.085 72.39 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 172.085 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 172.085 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S39") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S39") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 194.945 82.55 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid cd68c429-d5d3-4ff6-945d-b8ba156e59e7)
+    (property "Reference" "S56" (at 194.945 80.01 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 194.945 85.09 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 194.945 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 194.945 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S56") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S56") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:MountingHoleSMD") (at 114.935 129.54 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid ce61e5fd-59cb-4fca-9d66-b36025e9be83)
+    (property "Reference" "Hs15" (at 117.475 128.7053 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "~" (at 117.475 131.2422 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 114.935 129.54 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 114.935 129.54 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "Hs15") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "Hs15") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 160.655 82.55 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid ce672835-e5d7-4b1e-b48d-81f46227b207)
+    (property "Reference" "S53" (at 160.655 80.01 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 160.655 85.09 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 160.655 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 160.655 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S53") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S53") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 149.225 95.25 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid d0ee69aa-1753-4fed-98c7-aaa313edc2de)
+    (property "Reference" "S66" (at 149.225 92.71 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 149.225 97.79 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 149.225 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 149.225 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S66") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S66") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 217.805 95.25 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid d64d82fe-3053-49eb-817a-d791d3a5e8f7)
+    (property "Reference" "S72" (at 217.805 92.71 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 217.805 97.79 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 217.805 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 217.805 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S72") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S72") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 183.515 95.25 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid d67cdf21-df19-42d4-baca-7598b97ec452)
+    (property "Reference" "S69" (at 183.515 92.71 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 183.515 97.79 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 183.515 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 183.515 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S69") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S69") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 126.365 69.85 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid d8d8355e-6991-425e-9275-d8ec014b1ea4)
+    (property "Reference" "S35" (at 126.365 67.31 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 126.365 72.39 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 126.365 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 126.365 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S35") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S35") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 172.085 57.15 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid dbee0405-a642-4db5-90a0-117f000157c2)
+    (property "Reference" "S25" (at 172.085 54.61 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 172.085 59.69 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 172.085 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 172.085 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S25") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S25") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 149.225 69.85 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid e11a92ef-8135-4755-bc58-73796ecfb4fb)
+    (property "Reference" "S37" (at 149.225 67.31 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 149.225 72.39 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 149.225 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 149.225 69.85 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S37") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S37") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Mechanical:MountingHole") (at 154.305 116.84 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid e15dd0b6-6be7-4af5-b913-27435f4fa6c8)
+    (property "Reference" "H6" (at 156.845 115.57 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "MountingHole" (at 156.845 118.11 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 154.305 116.84 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 154.305 116.84 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "H6") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "H6") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 194.945 43.18 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid e1d8f743-761c-4672-baa1-2973008663b1)
+    (property "Reference" "S12" (at 194.945 40.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 194.945 45.72 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 194.945 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 194.945 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S12") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S12") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:MountingHoleSMD") (at 80.645 120.65 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid e4afea04-0f49-4905-be37-aa577e06bd9a)
+    (property "Reference" "Hs7" (at 83.185 119.8153 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "~" (at 83.185 122.3522 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 80.645 120.65 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 80.645 120.65 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "Hs7") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "Hs7") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:MountingHoleSMD") (at 92.075 111.76 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid e6cb8e6a-5360-4aa5-99b6-43ca97ceeb43)
+    (property "Reference" "Hs3" (at 94.615 110.9253 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "~" (at 94.615 113.4622 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 92.075 111.76 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 92.075 111.76 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "Hs3") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "Hs3") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Mechanical:MountingHole") (at 177.165 109.22 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid eb1582e3-8e62-46dc-bde1-d81887c5c982)
+    (property "Reference" "H4" (at 179.705 107.95 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "MountingHole" (at 179.705 110.49 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 177.165 109.22 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 177.165 109.22 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "H4") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "H4") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:MountingHoleSMD") (at 92.075 129.54 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid ed55895a-4e3e-48d2-8aee-8af6903af686)
+    (property "Reference" "Hs13" (at 94.615 128.7053 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "~" (at 94.615 131.2422 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 92.075 129.54 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 92.075 129.54 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "Hs13") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "Hs13") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 149.225 43.18 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid f29a9543-4d2a-4374-a615-f64435e36060)
+    (property "Reference" "S8" (at 149.225 40.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 149.225 45.72 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 149.225 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 149.225 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S8") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S8") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:MountingHoleSMD") (at 92.075 139.7 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid f361b320-fb3e-4f7b-b093-cabbd77738d1)
+    (property "Reference" "Hs18" (at 94.615 138.8653 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "~" (at 94.615 141.4022 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 92.075 139.7 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 92.075 139.7 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "Hs18") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "Hs18") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 217.805 43.18 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid f58b48df-aaf2-4113-bcd8-bebb4eed1e79)
+    (property "Reference" "S14" (at 217.805 40.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 217.805 45.72 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 217.805 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 217.805 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S14") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S14") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 103.505 82.55 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid f7eea397-ac26-42a3-8fc7-93513a896a7f)
+    (property "Reference" "S48" (at 103.505 80.01 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 103.505 85.09 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 103.505 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 103.505 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S48") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S48") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 206.375 82.55 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid f8c3ef89-7766-414b-8663-2882233bc3d6)
+    (property "Reference" "S57" (at 206.375 80.01 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 206.375 85.09 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 206.375 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 206.375 82.55 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S57") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S57") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:MountingHoleSMD") (at 80.645 111.76 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid f8dafe0f-3467-4910-8763-b0c89376acb7)
+    (property "Reference" "Hs2" (at 83.185 110.9253 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "~" (at 83.185 113.4622 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 80.645 111.76 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 80.645 111.76 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "Hs2") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "Hs2") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 69.215 95.25 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid f99f58af-7b3f-4c82-be93-7e0e0ad67065)
+    (property "Reference" "S59" (at 69.215 92.71 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 69.215 97.79 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 69.215 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 69.215 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S59") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S59") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 160.655 57.15 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid fb62ef74-b527-4942-a3e8-75a0c8622a4b)
+    (property "Reference" "S24" (at 160.655 54.61 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 160.655 59.69 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 160.655 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 160.655 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S24") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S24") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:MountingHoleSMD") (at 103.505 129.54 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid fb908235-c8b0-4f09-b650-5a9ad055f064)
+    (property "Reference" "Hs14" (at 106.045 128.7053 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "~" (at 106.045 131.2422 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+    (property "Footprint" "giri:SMTSO_M2_Front_Pad" (at 103.505 129.54 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 103.505 129.54 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "Hs14") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "Hs14") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 206.375 43.18 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid fc8ca93c-4519-4b33-952b-7a328c74d879)
+    (property "Reference" "S13" (at 206.375 40.64 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 206.375 45.72 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 206.375 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 206.375 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S13") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S13") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "giri:SwCtLP") (at 149.225 57.15 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid fec0a160-40e7-4a1e-89f2-33d0ee0ac20e)
+    (property "Reference" "S23" (at 149.225 54.61 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SwCtLP" (at 149.225 59.69 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "giri:Switch_Dummy" (at 149.225 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 149.225 57.15 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "switch-plate-wide"
+        (path "/d7252688-5951-499d-a955-d1b69652b20c"
+          (reference "S23") (unit 1)
+        )
+      )
+      (project "pcb"
+        (path "/eab2e1cd-7fe2-4c2e-876c-14fc6731298a"
+          (reference "S23") (unit 1)
+        )
+      )
+    )
+  )
+
+  (sheet_instances
+    (path "/" (page "1"))
+  )
+)

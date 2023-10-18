@@ -2,7 +2,6 @@
   (layer "F.Cu")
   (descr "Cherry MX keyswitch PCB Mount with 1.00u keycap")
   (tags "Cherry MX Keyboard Keyswitch Switch PCB Cutout 1.00u")
-  (attr through_hole)
   (fp_text reference "REF**" (at 0.1 -6.1) (layer "F.SilkS") hide
       (effects (font (size 1 1) (thickness 0.15)))
     (tstamp a3668681-09b1-48f0-a7b1-f6b24183a469)
