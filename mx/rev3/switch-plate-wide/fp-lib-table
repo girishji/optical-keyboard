@@ -1,4 +1,5 @@
 (fp_lib_table
-  (lib (name "RP2040_Minimal")(type "KiCad")(uri "/Users/gp/Projects/KiCad/rdzen/ver3/isotope/RP2040_minimal.pretty")(options "")(descr ""))
-  (lib (name "Giri_Library")(type "KiCad")(uri "/Users/gp/Projects/KiCad/optical-keyboard/giri-kicad-lib/switches_lib.pretty")(options "")(descr ""))
+  (version 7)
+  (lib (name "RP2040_Minimal")(type "KiCad")(uri "/Users/gp/git/KiCad/rdzen/ver3/isotope/RP2040_minimal.pretty")(options "")(descr ""))
+  (lib (name "Giri_Library")(type "KiCad")(uri "/Users/gp/git/KiCad/optical-keyboard/giri-kicad-lib/switches_lib.pretty")(options "")(descr ""))
 )
