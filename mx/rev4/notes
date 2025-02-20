@@ -1,3 +1,11 @@
+
+- key below ctrl (window c-w key) should be 1.25u
+- right shift is also 1.75u (like left shift), use capslock key if another shift key is not available
+- key next to pageup should be 1.25u (leader key)
+- right side should be wider to accommodate MacBook 16in; left side need not be since I keep keyboard close to left corner of the screen; but keeping left side a bit wider is also acceptable, but grid out a slot underneath where usb connection exists if you want to use this on 13in macbook as well.
+- shift the inner screws of the palm-plate more to the center of the palm-plates so that they do not interfere with touch pad (this is not entirely necessary since screws don't interact with touchpad anyway)
+
+============================================================
 - shift top row to the left by 1/4 so that right-most key is more accessible
 - make left shift 1-1/4 so that the key to the left of it is more accessible and mapped to ['"]
 - make 'enter' key 1-1/4 (right hand does not move to the right as well as i wanted)
