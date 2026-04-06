@@ -1,8 +1,9 @@
-
+J
 - add a strip of pct above top row, tall enough to block LED lights reflecting off of screen.
 - key below ctrl (window c-w key) should be 1.25u
 - right shift is also 1.75u (like left shift), use capslock key if another shift key is not available. Or use 1.5u (so that up/down arrows are in line)
 - key next to pageup should be 1.25u (leader key)
+- make the first left top key align with MacBook air's first key
 - right side should be wider to accommodate MacBook 16in; left side need not be since I keep keyboard close to left corner of the screen; but keeping left side a bit wider is also acceptable, but grind out a slot underneath where usb connection exists if you want to use this on 13in macbook as well.
 - shift the inner screws of the palm-plate more to the center of the palm-plates so that they do not interfere with touch pad (this is not entirely necessary since screws don't interact with touchpad anyway)
 - Still difficult to press left pinky on C-W key (below ctrl). Try to locate 2 keys where you have "`" key now (middle), new one for c-w.

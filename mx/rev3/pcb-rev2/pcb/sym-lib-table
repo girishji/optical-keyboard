@@ -1,4 +1,6 @@
 (sym_lib_table
-  (lib (name "giri")(type "KiCad")(uri "/Users/gp/Projects/KiCad/optical-keyboard/giri-kicad-lib/switches.kicad_sym")(options "")(descr ""))
-  (lib (name "RP2040_Minimal")(type "KiCad")(uri "/Users/gp/Projects/KiCad/rdzen/ver3/isotope/RP2040_Minimal.kicad_sym")(options "")(descr ""))
+  (version 7)
+  (lib (name "giri")(type "KiCad")(uri "${KIPRJMOD}/../../../../giri-kicad-lib/switches.kicad_sym")(options "")(descr ""))
+  (lib (name "RP2040_Minimal")(type "KiCad")(uri "${KIPRJMOD}/../../../../giri-kicad-lib/RP2040_Minimal.kicad_sym")(options "")(descr ""))
+  (lib (name "temp-library")(type "KiCad")(uri "/Users/gp/git/tmr-keyboard/temp-library.kicad_sym")(options "")(descr ""))
 )
